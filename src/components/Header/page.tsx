@@ -8,7 +8,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { BsPersonPlus } from "react-icons/bs";
 import { IoChevronDownOutline } from "react-icons/io5";
 import MenuIconOpenClose from "./MenuIconOpenClose";
-import MobileDropdown from "./MobileDropdown";
+// import MobileDropdown from "./MobileDropdown";
 
 const navLinks = [
   { name: "HOME", href: "#" },
@@ -85,7 +85,7 @@ const Header = () => {
           </button>
         </div>
 
-        {<MobileDropdown isMenuOpen={isDropdownOpen} />}
+        {/* {<MobileDropdown isMenuOpen={isDropdownOpen} />} */}
       </nav>
     </div>
   );
