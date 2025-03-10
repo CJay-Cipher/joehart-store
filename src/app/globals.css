@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --main-white: #ffffff;
+  --main-black: #000000;
+  --main-text: #051023;
+  --header-bg: #e4e7ef;
+  --button-bg: #2762da;
+  --button-bg-hover: #1a2744;
+  --button-hero-bg: #1c1e23;
+  --button-hero-bg-hover: #282f41;
+  --custom-gray-light: #f8f9ff;
+  --custom-gray-dark: #a1a6b4;
+  --custom-red: #fa5252;
+  --shadow: #e4e7ef;
+}
+
+@theme inline {
+  /* color */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-main-white: var(--main-white);
+  --color-main-black: var(--main-black);
+  --color-main-text: var(--main-text);
+  --color-header-bg: var(--header-bg);
+  --color-button-bg: var(--button-bg);
+  --color-button-bg-hover: var(--button-bg-hover);
+  --color-button-hero-bg: var(--button-hero-bg);
+  --color-button-hero-bg-hover: var(--button-hero-bg-hover);
+  --color-custom-gray-light: var(--custom-gray-light);
+  --color-custom-gray-dark: var(--custom-gray-dark);
+  --color-custom-red: var(--custom-red);
+  --color-shadow: var(--shadow);
+
+  /* font-family */
+  --font-montserrat: var(--font-montserrat);
+  --font-outfit: var(--font-outfit);
+  --font-alumni: var(--font-alumni-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-white: #ffffff;
+    --main-black: #000000;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, Helvetica, sans-serif;
+}
