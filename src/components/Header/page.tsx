@@ -32,7 +32,7 @@ const Header = () => {
   };
   return (
     <div className="lg:h-[80px] md:h-[60px] h-[50px] bg-header-bg flex items-center justify-center">
-      <nav className="font-montserrat flex items-center justify-between h-full w-full max-w-[1400px] mx-auto lg:px-8 md:px-6 px-4 bg-header-bg text-[12px]">
+      <nav className="font-montserrat flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 bg-header-bg text-[12px]">
         <div className="flex items-center">
           <a href="" className="flex items-center gap-[5px] font-outfit  xl:text-[18px] text-[16px] text-nowrap font-bold text-black tracking-[0.9px]">
             <Image src={perfume} alt="Perfume" className="w-[26px] h-[26px]" />
@@ -58,7 +58,7 @@ const Header = () => {
             <a
               key={index}
               href={item.href}
-              className="relative flex items-center gap-2 md:px-[12px] px-[5px] py-[5px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] border border-custom-gray-light transition-colors duration-200 hover:bg-custom-gray-light"
+              className="relative flex items-center gap-2 md:px-[12px] px-[5px] py-[5px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white"
             >
               <span className="max-md:hidden ">{item.name}</span>
               {React.cloneElement(item.icon, { className: "xl:h-[17px] xl:w-[17px] h-[15px] w-[15px]" })}

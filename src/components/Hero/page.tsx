@@ -24,7 +24,7 @@ const Hero = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="flex flex-col justify-center w-[100%] max-w-[1400px] h-full xl:space-y-4 md:space-y-3 space-y-2 mx-auto lg:px-8 md:px-6 px-4">
+        <div className="flex flex-col justify-center w-[100%] max-w-[1480px] h-full xl:space-y-4 md:space-y-3 space-y-2 mx-auto lg:px-8 md:px-6 px-4">
           <h1 className="xl:text-[70px] lg:text-[60px] md:text-[45px] text-[35px] text-main-white font-[700] lg:max-w-[750px] md:max-w-[500px] max-w-[350px] leading-[1]">
             Discover The Best Deals On Top Fragrances
           </h1>
