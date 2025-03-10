@@ -4,7 +4,6 @@ import perfume from "../../images/perfume.png";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { BsPersonPlus } from "react-icons/bs";
-import { PiUserCirclePlusLight } from "react-icons/pi";
 import { IoChevronDownOutline } from "react-icons/io5";
 
 const Header = () => {

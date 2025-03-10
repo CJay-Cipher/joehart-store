@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import HeroImage from "../../images/HeroImageSmall.png";
 import { FaFacebook } from "react-icons/fa6";
 import { BsInstagram } from "react-icons/bs";
