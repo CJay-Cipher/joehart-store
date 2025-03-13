@@ -11,9 +11,12 @@
   --button-bg-hover: #1a2744;
   --button-hero-bg: #1c1e23;
   --button-hero-bg-hover: #282f41;
+  --custom-gray: #7e838f;
   --custom-gray-light: #f8f9ff;
   --custom-gray-dark: #a1a6b4;
+  --custom-gray-darker: #57595f;
   --custom-red: #fa5252;
+  --custom-blue: #2b7fff;
   --shadow: #e4e7ef;
 }
 
@@ -29,9 +32,12 @@
   --color-button-bg-hover: var(--button-bg-hover);
   --color-button-hero-bg: var(--button-hero-bg);
   --color-button-hero-bg-hover: var(--button-hero-bg-hover);
+  --color-custom-gray: var(--custom-gray);
   --color-custom-gray-light: var(--custom-gray-light);
   --color-custom-gray-dark: var(--custom-gray-dark);
+  --color-custom-gray-darker: var(--custom-gray-darker);
   --color-custom-red: var(--custom-red);
+  --color-custom-blue: var(--custom-blue);
   --color-shadow: var(--shadow);
 
   /* font-family */
@@ -52,4 +58,18 @@
 }
 body {
   font-family: Verdana, Helvetica, sans-serif;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+/* Hide scrollbar for Chrome, Safari and Edge */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
