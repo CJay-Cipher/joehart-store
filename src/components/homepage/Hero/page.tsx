@@ -17,7 +17,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="w-full font-montserrat lg:mt-[80px] md:mt-[60px] mt-[50px]">
+    <div className="w-full font-montserrat lg:mt-[80px] md:mt-[60px] mt-[55px]">
       <div
         className="mx-auto w-[100%] max-w-[2000px] xl:h-[500px] lg:h-[450px] md:h-[400px] h-[350px] p-0 m-0"
         style={{

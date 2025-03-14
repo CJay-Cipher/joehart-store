@@ -14,7 +14,7 @@ const products = [
 
 const SearchSortBar = () => {
   return (
-    <div className="flex max-lg:flex-col items-center justify-between w-full lg:max-w-[750px] max-w-[420px] lg:gap-10 gap-3 p-2 bg-header-bg lg:rounded-[30px] rounded-[7px]">
+    <div className="flex max-lg:flex-col items-center justify-between w-full lg:max-w-[750px] max-w-[420px] lg:gap-10 gap-3 max-lg:mb-4 p-2 bg-header-bg lg:rounded-[30px] rounded-[7px]">
       <ProductSearch products={products} />
       <SortByDropdown />
     </div>

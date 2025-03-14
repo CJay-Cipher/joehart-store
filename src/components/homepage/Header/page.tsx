@@ -13,6 +13,7 @@ import MenuIconOpenClose from "./MenuIconOpenClose";
 type HeaderProps = {
   wishlistCount?: number;
   cartCount?: number;
+  showHeader?: boolean;
 };
 
 const navLinks = [
@@ -23,7 +24,7 @@ const navLinks = [
   { name: "BRANDS", href: "brands" },
 ];
 
-const Header = ({ wishlistCount, cartCount }: HeaderProps) => {
+const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
@@ -35,7 +36,7 @@ const Header = ({ wishlistCount, cartCount }: HeaderProps) => {
         // Arbitrary distance to start hiding
         if (window.scrollY < lastScrollY) {
           setIsHeaderVisible(true); // Scrolling up
-        } else {
+        } else if (!showHeader) {
           setIsHeaderVisible(false); // Scrolling down
         }
       } else {
@@ -43,12 +44,19 @@ const Header = ({ wishlistCount, cartCount }: HeaderProps) => {
       }
       lastScrollY = window.scrollY;
     };
+    console.log("showHeader state:", showHeader);
+
+    if (showHeader) {
+      setIsHeaderVisible(true); // Show the header
+    } else if (window.scrollY > 100) {
+      setIsHeaderVisible(false);
+    }
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [showHeader]);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -56,7 +64,7 @@ const Header = ({ wishlistCount, cartCount }: HeaderProps) => {
 
   return (
     <div
-      className={`fixed z-100 top-0 w-full lg:h-[80px] md:h-[60px] h-[50px] bg-header-bg flex items-center justify-center transition-transform duration-300 ${
+      className={`fixed z-100 top-0 w-full lg:h-[80px] md:h-[60px] h-[55px] bg-header-bg flex items-center justify-center transition-transform duration-300 ${
         isHeaderVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -80,7 +88,7 @@ const Header = ({ wishlistCount, cartCount }: HeaderProps) => {
           ))}
         </div>
 
-        <div className="flex items-center md:gap-3 gap-4">
+        <div className="flex items-center md:gap-3 sm:gap-4 gap-2">
           <a
             href="#"
             className="relative flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white active:bg-button-hero-bg-hover active:text-main-white"
@@ -115,8 +123,10 @@ const Header = ({ wishlistCount, cartCount }: HeaderProps) => {
         <div className="block lg:hidden">
           <button
             onClick={toggleDropdown}
-            className={`px-4 py-2 group cursor-pointer transition-all duration-200 border-[0.5px] border-transparent rounded-[15px] ${
-              isDropdownOpen ? "hover:shadow-xl hover:border-custom-gray-light" : "hover:shadow-none hover:border-transparent"
+            className={`p-2 group cursor-pointer transition-all duration-200 border-[0.5px] border-transparent rounded-[5px] ${
+              isDropdownOpen
+                ? "hover:shadow-xl hover:border-custom-gray-light focus:shadow-xl focus:border-custom-gray-light"
+                : "hover:shadow-none hover:border-transparent focus:shadow-none focus:border-transparent"
             }`}
           >
             <MenuIconOpenClose
