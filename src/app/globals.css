@@ -7,16 +7,19 @@
   --main-black: #000000;
   --main-text: #051023;
   --header-bg: #e4e7ef;
-  --button-bg: #2762da;
-  --button-bg-hover: #1a2744;
+  --button-bg: #1a2744;
+  --button-bg-hover: #2b7fff;
   --button-hero-bg: #1c1e23;
   --button-hero-bg-hover: #282f41;
+  --custom-slate-100: #f1f5f9;
   --custom-gray: #7e838f;
   --custom-gray-light: #f8f9ff;
   --custom-gray-dark: #a1a6b4;
   --custom-gray-darker: #57595f;
   --custom-red: #fa5252;
-  --custom-blue: #2b7fff;
+  --custom-blue: #2762da;
+  --custom-blue-2: #2b7fff;
+  --custom-blue-light: #add7ff;
   --shadow: #e4e7ef;
 }
 
@@ -33,11 +36,14 @@
   --color-button-hero-bg: var(--button-hero-bg);
   --color-button-hero-bg-hover: var(--button-hero-bg-hover);
   --color-custom-gray: var(--custom-gray);
+  --color-custom-slate-100: var(--custom-slate-100);
   --color-custom-gray-light: var(--custom-gray-light);
   --color-custom-gray-dark: var(--custom-gray-dark);
   --color-custom-gray-darker: var(--custom-gray-darker);
   --color-custom-red: var(--custom-red);
   --color-custom-blue: var(--custom-blue);
+  --color-custom-blue-2: var(--custom-blue-2);
+  --color-custom-blue-light: var(--custom-blue-light);
   --color-shadow: var(--shadow);
 
   /* font-family */
@@ -72,4 +78,21 @@ a {
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.truncate {
+  display: -webkit-box; /* For Safari */
+  -webkit-box-orient: vertical; /* For Safari */
+  -webkit-line-clamp: 2; /* Limit to 2 lines, adjust as needed */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis */
+}
+
+/* Fallback for non-WebKit browsers */
+.truncate {
+  display: block; /* Default block display */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis */
+  line-height: 1.5; /* Adjust line height */
+  max-height: calc(1.5em * 2); /* Adjust max height for 2 lines */
 }

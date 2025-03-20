@@ -68,7 +68,7 @@ const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
         isHeaderVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="font-montserrat flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 bg-header-bg text-[12px]">
+      <nav className="font-montserrat relative flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 bg-header-bg text-[12px]">
         <div className="flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-black tracking-[0.9px]">
           <Image src={perfume} alt="Perfume" className="w-[26px] h-[26px]" />
           JoeHart
@@ -88,10 +88,10 @@ const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
           ))}
         </div>
 
-        <div className="flex items-center md:gap-3 sm:gap-4 gap-2">
+        <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center md:gap-3 sm:gap-4 gap-2">
           <a
             href="#"
-            className="relative flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white active:bg-button-hero-bg-hover active:text-main-white"
+            className="relative flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white"
           >
             <span className="max-md:hidden">Wishlist</span>
             <IoMdHeartEmpty className="xl:h-[18px] xl:w-[18px] h-[17px] w-[17px]" />
@@ -102,7 +102,7 @@ const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
 
           <a
             href="#"
-            className="relative flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white active:bg-button-hero-bg-hover active:text-main-white"
+            className="relative flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white"
           >
             <span className="max-md:hidden">Cart</span>
             <IoCartOutline className="xl:h-[18px] xl:w-[18px] h-[17px] w-[17px]" />
@@ -113,7 +113,7 @@ const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
 
           <a
             href="#"
-            className="flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white active:bg-button-hero-bg-hover active:text-main-white"
+            className="flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white"
           >
             <span className="max-md:hidden">Sign Up</span>
             <BsPersonPlus className="xl:h-[18px] xl:w-[18px] h-[17px] w-[17px]" />

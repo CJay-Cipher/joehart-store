@@ -24,7 +24,7 @@ const ExploreCarousel = () => {
           <div key={index} className="relative">
             <Image src={card.bgImage} alt="card image" className="xl:min-w-[450px] md:min-w-[400px] sm:min-w-[350px] min-w-[320px]" />
             <div className="absolute w-full h-full flex flex-col justify-between top-0 left-0 text-main-white lg:p-4 p-3">
-              <div className="lg:max-w-[45%] max-w-[40%] self-end text-wrap md:mt-6 mt-10">
+              <div className="lg:max-w-[45%] max-w-[40%] self-end text-wrap md:mt-6 mt-3">
                 <h2 className="lg:max-w-[150px] max-w-[130px] mx-auto lg:text-[32px] text-[26px] font-bold text-center leading-[1.1]">{card.title}</h2>
                 <p className="lg:text-[12px] text-[11px] text-center font-medium mt-2">{card.subtitle}</p>
               </div>

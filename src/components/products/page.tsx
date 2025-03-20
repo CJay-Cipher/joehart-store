@@ -167,7 +167,7 @@ const products: Product[] = [
     price: "24000.00",
     oldPrice: "30000.00",
     imageUrl: "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/y/v/yves_saint_laurent_black_opium_glitter_edp_90ml.jpg",
-    description: "Paco Rabanne 1 Million Eau de Toilette",
+    description: "Paco Rabanne 1 Million Eau de Toilette abanne 1 Million Eau de Toilette",
     rating: 4.4,
   },
 ];
@@ -186,20 +186,20 @@ const Products = ({ wishlistIncreament, wishlistDecreament, cartIncrement, cartD
         {products.map((product) => (
           <div
             key={product.id}
-            className="flex sm:flex-col justify-between max-sm:items-center max-sm:py-6 xl:max-w-[300px] lg:max-w-[290px] md:max-w-[280px] sm:max-w-[270px] max-w-[420px] w-full border border-shadow xl:rounded-[15px] md:rounded-[10px] rounded-[5px] overflow-hidden md:shadow-lg shadow-md transition-transform transform hover:scale-103"
+            className="flex sm:flex-col justify-center max-sm:items-center xl:max-w-[270px] lg:max-w-[260px] md:max-w-[250px] sm:max-w-[240px] max-w-[420px] w-full bg-custom-slate-100 border border-shadow xl:rounded-[15px] rounded-[10px] overflow-hidden md:shadow-lg shadow-md hover:shadow-custom-blue-light transition-transform transform hover:scale-103"
           >
-            <div className="max-sm:w-[180px] md:p-4 sm:p-3 p-2">
+            <div className="flex sm:justify-center items-center sm:w-full w-max md:p-4 sm:p-3 p-2 bg-main-white xl:rounded-[15px] rounded-[10px] sm:border-b border-r border-shadow">
               <Image
                 width={100}
                 height={100}
                 src={product.imageUrl}
                 alt={product.name}
-                className="w-full object-cover xl:rounded-[15px] md:rounded-[10px] rounded-[5px] overflow-hidden"
+                className="w-[150px] max-sm:w-[180px] object-cover xl:rounded-[15px] md:rounded-[10px] rounded-[5px] overflow-hidden"
               />
             </div>
-            <div className="md:p-4 sm:p-3 p-2 flex-1 flex flex-col">
+            <div className="md:p-3 p-2 flex-1 flex flex-col">
               <h2 className="font-bold lg:text-[16px] text-[14px]">{product.name}</h2>
-              <p className="text-custom-gray lg:text-[12px] text-[10px]">{product.description}</p>
+              <p className="text-custom-gray lg:text-[12px] text-[10px] sm:truncate">{product.description}</p>
               <div className="flex items-center">
                 {product.rating && (
                   <span className={`text-yellow-500`}>
@@ -209,21 +209,23 @@ const Products = ({ wishlistIncreament, wishlistDecreament, cartIncrement, cartD
                 )}
                 <span className="ml-2 lg:text-[14px] text-[12px] text-custom-gray">({product.rating})</span>
               </div>
-              <div className="sm:mt-auto">
+              <div className="">
                 <div className="flex items-center max-sm:flex-wrap sm:gap-4">
                   <p className="font-semibold lg:text-[16px] text-[14px] mr-4">₦ {Number(product.price).toLocaleString()}</p>
                   <p className="lg:text-[12px] text-[10px] text-custom-gray font-medium line-through">{product.oldPrice}</p>
                 </div>
-                <div className="flex flex-wrap-reverse gap-2 mt-2">
-                  <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] bg-custom-blue text-main-white py-1 px-3 rounded hover:bg-button-bg-hover active:bg-button-bg-hover">
+                <div className="flex flex-col gap-2">
+                  <div className="flex gap-2 mt-2">
+                    <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-button-bg border border-button-bg py-0 sm:px-3 px-2 rounded hover:border-transparent hover:text-main-white hover:bg-button-bg-hover ">
+                      <span>View</span>
+                    </button>
+                    <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-custom-gray-dark border border-custom-gray-dark py-1 sm:px-3 px-2 rounded hover:text-custom-red hover:border-custom-red">
+                      <IoMdHeart className="xl:h-[18px] xl:w-[18px] h-[16px] w-[16px]" />
+                    </button>
+                  </div>
+                  <button className="flex justify-center items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] bg-button-bg text-main-white py-1 sm:px-3 px-2 rounded hover:bg-button-bg-hover">
                     <span>Add to Cart</span>
                     <IoCartOutline className="xl:h-[17px] xl:w-[17px] h-[15px] w-[15px]" />
-                  </button>
-                  <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-custom-blue border border-custom-blue py-1 px-3 rounded hover:border-transparent hover:text-main-white hover:bg-button-bg-hover  active:border-transparent active:text-main-white active:bg-button-bg-hover">
-                    <span>View</span>
-                  </button>
-                  <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-shadow border border-custom-gray-dark py-1 px-3 rounded hover:text-custom-red hover:border-custom-red active:text-custom-red active:border-custom-red">
-                    <IoMdHeart className="xl:h-[18px] xl:w-[18px] h-[16px] w-[16px]" />
                   </button>
                 </div>
               </div>
