@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <div className="font-montserrat max-sm:bg-custom-gray-light">
-      <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} />
+      <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} activePageName="Home" />
       <Hero />
       <ExploreCarousel />
       <PagePath />

@@ -14,6 +14,7 @@ type HeaderProps = {
   wishlistCount?: number;
   cartCount?: number;
   showHeader?: boolean;
+  activePageName?: string;
 };
 
 const navLinks = [
@@ -24,7 +25,7 @@ const navLinks = [
   { name: "BRANDS", href: "brands" },
 ];
 
-const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
+const Header = ({ wishlistCount, cartCount, showHeader, activePageName }: HeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
@@ -68,19 +69,19 @@ const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
         isHeaderVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="font-montserrat relative flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 bg-header-bg text-[12px]">
+      <nav className="font-montserrat relative flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 bg-header-bg backdrop-blur-md text-[12px]">
         <div className="flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-black tracking-[0.9px]">
-          <Image src={perfume} alt="Perfume" className="w-[26px] h-[26px]" />
+          <Image src={perfume} alt="Perfume" className="max-xs:hidden w-[26px] h-[26px]" />
           JoeHart
         </div>
-        <div className="flex items-center xl:gap-2 gap-1 max-lg:hidden font-medium xl:text-[12px] text-[10px]">
+        <div className="flex items-center xl:gap-2 gap-1 max-lg:hidden font-medium">
           {navLinks.map((link, index) => (
             <Link
               key={index}
               href={link.href || "#"}
-              className={`px-[14px] py-[5px] rounded-[30px] border border-transparent transition-colors duration-200 text-main-text hover:border-custom-gray-dark hover:text-main-black active:border-custom-gray-dark active:text-main-black text-nowrap xl:tracking-[0.8px] tracking-[0.6px] cursor-pointer ${
+              className={`px-[14px] py-[5px] xl:text-[12px] text-[10px] rounded-[30px] border border-transparent transition-all duration-200 text-main-text text-nowrap xl:tracking-[0.8px] tracking-[0.6px] cursor-pointer ${
                 link.hasIcon && "flex items-center gap-[2px]"
-              }`}
+              } ${activePageName?.toUpperCase() == link.name ? "font-bold bg-main-white" : "hover:text-main-white hover:bg-button-bg-hover"}`}
             >
               {link.name}
               {link.hasIcon && <IoChevronDownOutline className="h-[16px] w-[16px]" />}
@@ -88,32 +89,36 @@ const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
           ))}
         </div>
 
-        <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center md:gap-3 sm:gap-4 gap-2">
+        <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center gap-2">
           <a
             href="#"
-            className="relative flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white"
+            className="relative flex items-center gap-1 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] border border-transparent transition-all duration-200 hover:text-main-white hover:bg-button-bg-hover max-md:hover:scale-[1.15]"
           >
             <span className="max-md:hidden">Wishlist</span>
             <IoMdHeartEmpty className="xl:h-[18px] xl:w-[18px] h-[17px] w-[17px]" />
-            <span className="absolute flex justify-center items-center md:h-[18px] md:w-[18px] h-[15px] w-[15px] top-[-5px] right-[-6px] md:text-[12px] text-[10px] text-main-white bg-custom-red font-semibold rounded-[50%]">
-              {wishlistCount}
-            </span>
+            {wishlistCount != 0 && (
+              <span className="absolute flex justify-center items-center md:h-[18px] md:w-[18px] h-[15px] w-[15px] top-[-5px] right-[-0px] md:text-[12px] text-[10px] text-main-white bg-custom-red font-semibold rounded-[50%]">
+                {wishlistCount}
+              </span>
+            )}
           </a>
 
           <a
             href="#"
-            className="relative flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white"
+            className="relative flex items-center gap-1 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] border border-transparent transition-colors duration-100 hover:text-main-white hover:bg-button-bg-hover max-md:hover:scale-[1.15]"
           >
             <span className="max-md:hidden">Cart</span>
             <IoCartOutline className="xl:h-[18px] xl:w-[18px] h-[17px] w-[17px]" />
-            <span className="absolute flex justify-center items-center md:h-[18px] md:w-[18px] h-[15px] w-[15px] top-[-5px] right-[-6px] md:text-[12px] text-[10px] text-main-white bg-custom-red font-semibold rounded-[50%]">
-              {cartCount}
-            </span>
+            {cartCount != 0 && (
+              <span className="absolute flex justify-center items-center md:h-[18px] md:w-[18px] h-[15px] w-[15px] top-[-5px] right-[-0px] md:text-[12px] text-[10px] text-main-white bg-custom-red font-semibold rounded-[50%]">
+                {cartCount}
+              </span>
+            )}
           </a>
 
           <a
             href="#"
-            className="flex items-center gap-2 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] bg-custom-gray-light border border-custom-gray-dark transition-colors duration-100 hover:bg-button-hero-bg-hover hover:text-main-white"
+            className="flex items-center gap-1 md:px-[12px] md:py-[5px] px-[7px] py-[7px] xl:text-[12px] text-[11px] text-main-text text-nowrap rounded-[50px] border border-transparent transition-colors duration-100 hover:text-main-white hover:bg-button-bg-hover max-md:hover:scale-[1.15]"
           >
             <span className="max-md:hidden">Sign Up</span>
             <BsPersonPlus className="xl:h-[18px] xl:w-[18px] h-[17px] w-[17px]" />
@@ -123,9 +128,9 @@ const Header = ({ wishlistCount, cartCount, showHeader }: HeaderProps) => {
         <div className="block lg:hidden">
           <button
             onClick={toggleDropdown}
-            className={`p-2 group cursor-pointer transition-all duration-200 border-[0.5px] border-transparent rounded-[5px] ${
+            className={`xs:p-2 group cursor-pointer transition-all duration-200 border-[0.5px] border-transparent rounded-[5px] ${
               isDropdownOpen
-                ? "hover:shadow-xl hover:border-custom-gray-light focus:shadow-xl focus:border-custom-gray-light"
+                ? "hover:shadow-xl hover:border-custom-gray hover:scale-[1.15]-light focus:shadow-xl focus:border-custom-gray-light"
                 : "hover:shadow-none hover:border-transparent focus:shadow-none focus:border-transparent"
             }`}
           >

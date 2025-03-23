@@ -34,7 +34,7 @@ const Hero = () => {
               </a>
             ))}
           </div>
-          <button className="xl:w-[200px] xl:h-[50px] lg:w-[185px] lg:h-[45px] md:w-[170px] md:h-[40px] w-[155px] h-[35px] flex justify-center items-center mt-2 bg-button-hero-bg border border-main-white hover:bg-button-hero-bg-hover rounded-[50px] text-nowrap xl:text-[20px] lg:text-[18px] md:text-[16px] text-[14px] font-semibold text-main-white cursor-pointer">
+          <button className="xl:w-[200px] xl:h-[50px] lg:w-[185px] lg:h-[45px] md:w-[170px] md:h-[40px] w-[155px] h-[35px] flex justify-center items-center mt-2 bg-main-black border border-main-white hover:bg-button-bg-hover rounded-[50px] text-nowrap xl:text-[20px] lg:text-[18px] md:text-[16px] text-[14px] font-semibold text-main-white cursor-pointer">
             SHOP NOW
           </button>
         </div>

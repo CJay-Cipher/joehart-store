@@ -6,16 +6,17 @@
   --main-white: #ffffff;
   --main-black: #000000;
   --main-text: #051023;
-  --header-bg: #e4e7ef;
+  --header-bg: #e4e7ef83;
   --button-bg: #1a2744;
   --button-bg-hover: #2b7fff;
   --button-hero-bg: #1c1e23;
   --button-hero-bg-hover: #282f41;
-  --custom-slate-100: #f1f5f9;
   --custom-gray: #7e838f;
   --custom-gray-light: #f8f9ff;
   --custom-gray-dark: #a1a6b4;
   --custom-gray-darker: #57595f;
+  --custom-gray-400: #d1d5dc;
+  --custom-slate-400: #cad5e2;
   --custom-red: #fa5252;
   --custom-blue: #2762da;
   --custom-blue-2: #2b7fff;
@@ -36,10 +37,11 @@
   --color-button-hero-bg: var(--button-hero-bg);
   --color-button-hero-bg-hover: var(--button-hero-bg-hover);
   --color-custom-gray: var(--custom-gray);
-  --color-custom-slate-100: var(--custom-slate-100);
   --color-custom-gray-light: var(--custom-gray-light);
   --color-custom-gray-dark: var(--custom-gray-dark);
   --color-custom-gray-darker: var(--custom-gray-darker);
+  --color-custom-gray-400: var(--custom-gray-400);
+  --color-custom-slate-400: var(--custom-slate-400);
   --color-custom-red: var(--custom-red);
   --color-custom-blue: var(--custom-blue);
   --color-custom-blue-2: var(--custom-blue-2);
@@ -50,6 +52,11 @@
   --font-montserrat: var(--font-montserrat);
   --font-outfit: var(--font-outfit);
   --font-alumni: var(--font-alumni-sans);
+
+  /* screens */
+  --breakpoint-xs: 520px;
+  --breakpoint-2xs: 420px;
+  --breakpoint-3xs: 370px;
 }
 
 @media (prefers-color-scheme: dark) {

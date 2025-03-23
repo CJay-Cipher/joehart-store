@@ -4,6 +4,7 @@ import ShowingItems from "./ShowingItems";
 import SearchSortBar from "./SearchSortBar";
 import { IoMdHeart } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
+import { FaEye } from "react-icons/fa6";
 // import ViewType from "./ViewType";
 
 type ProductsProps = {
@@ -186,20 +187,20 @@ const Products = ({ wishlistIncreament, wishlistDecreament, cartIncrement, cartD
         {products.map((product) => (
           <div
             key={product.id}
-            className="flex sm:flex-col justify-center max-sm:items-center xl:max-w-[270px] lg:max-w-[260px] md:max-w-[250px] sm:max-w-[240px] max-w-[420px] w-full bg-custom-slate-100 border border-shadow xl:rounded-[15px] rounded-[10px] overflow-hidden md:shadow-lg shadow-md hover:shadow-custom-blue-light transition-transform transform hover:scale-103"
+            className="flex xs:flex-col max-3xs:flex-col justify-center 3xs:max-xs:items-center gap-1 xl:max-w-[270px] lg:max-w-[260px] md:max-w-[250px] sm:max-w-[240px] xs:max-w-[230px] w-full max-3xs:max-w-[250px] max-3xs: bg-custom-slate-100 border xs:border-shadow border-custom-gray-dark xl:rounded-[15px] md:rounded-[10px] rounded-[3px] overflow-hidden md:shadow-lg shadow-md hover:shadow-custom-blue-light hover:border-custom-gray-dark transition-colors duration-300 group"
           >
-            <div className="flex sm:justify-center items-center sm:w-full w-max md:p-4 sm:p-3 p-2 bg-main-white xl:rounded-[15px] rounded-[10px] sm:border-b border-r border-shadow">
+            <div className="flex 2xs:justify-center max-3xs:justify-center items-center xs:w-full max-3xs:w-full h-full w-max md:p-4 2xs:p-3 p-2 bg-main-white xl:rounded-[15px] md:rounded-[10px] rounded-[3px] 2xs:border-b border-r border-shadow overflow-hidden">
               <Image
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 src={product.imageUrl}
                 alt={product.name}
-                className="w-[150px] max-sm:w-[180px] object-cover xl:rounded-[15px] md:rounded-[10px] rounded-[5px] overflow-hidden"
+                className="w-[150px] max-2xs:w-[150px] object-cover xl:rounded-[15px] md:rounded-[10px] rounded-[3px] sm:group-hover:scale-120 group-hover:scale-110 transition-transform duration-300"
               />
             </div>
             <div className="md:p-3 p-2 flex-1 flex flex-col">
-              <h2 className="font-bold lg:text-[16px] text-[14px]">{product.name}</h2>
-              <p className="text-custom-gray lg:text-[12px] text-[10px] sm:truncate">{product.description}</p>
+              <h2 className="font-bold lg:text-[16px] text-[14px] max-3xs:truncate">{product.name}</h2>
+              <p className="text-custom-gray lg:text-[12px] text-[10px] 2xs:truncate">{product.description}</p>
               <div className="flex items-center">
                 {product.rating && (
                   <span className={`text-yellow-500`}>
@@ -210,20 +211,22 @@ const Products = ({ wishlistIncreament, wishlistDecreament, cartIncrement, cartD
                 <span className="ml-2 lg:text-[14px] text-[12px] text-custom-gray">({product.rating})</span>
               </div>
               <div className="">
-                <div className="flex items-center max-sm:flex-wrap sm:gap-4">
+                <div className="flex items-center max-2xs:flex-wrap sm:gap-4">
                   <p className="font-semibold lg:text-[16px] text-[14px] mr-4">₦ {Number(product.price).toLocaleString()}</p>
                   <p className="lg:text-[12px] text-[10px] text-custom-gray font-medium line-through">{product.oldPrice}</p>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <div className="flex gap-2 mt-2">
-                    <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-button-bg border border-button-bg py-0 sm:px-3 px-2 rounded hover:border-transparent hover:text-main-white hover:bg-button-bg-hover ">
-                      <span>View</span>
+                <div className="flex flex-row-reverse 3xs:max-sm:flex-col gap-2 mt-2">
+                  <div className="flex justify-between gap-2">
+                    <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-button-bg border border-button-bg py-1 sm:px-3 px-2 rounded hover:border-transparent hover:text-main-white hover:bg-button-bg-hover ">
+                      <span className="hidden">View</span>
+                      <FaEye className="xl:h-[18px] xl:w-[18px] h-[16px] w-[16px]" />
                     </button>
-                    <button className="flex items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-custom-gray-dark border border-custom-gray-dark py-1 sm:px-3 px-2 rounded hover:text-custom-red hover:border-custom-red">
+                    <button className="flex items-center justify-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-button-bg border border-button-bg py-1 sm:px-3 px-2 rounded hover:text-custom-red hover:border-custom-red">
+                      <span className="hidden">Wishlist</span>
                       <IoMdHeart className="xl:h-[18px] xl:w-[18px] h-[16px] w-[16px]" />
                     </button>
                   </div>
-                  <button className="flex justify-center items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] bg-button-bg text-main-white py-1 sm:px-3 px-2 rounded hover:bg-button-bg-hover">
+                  <button className="flex flex-1 justify-center items-center md:gap-2 gap-1 lg:text-[14px] text-[12px] bg-button-bg text-main-white py-1 sm:px-3 px-2 rounded hover:bg-button-bg-hover">
                     <span>Add to Cart</span>
                     <IoCartOutline className="xl:h-[17px] xl:w-[17px] h-[15px] w-[15px]" />
                   </button>

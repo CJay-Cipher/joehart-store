@@ -31,7 +31,7 @@ const ExploreCarousel = () => {
               <Link
                 key={index}
                 href={card.href}
-                className="w-max md:py-2 md:px-5 py-2 px-4 text-nowrap lg:text-[12px] text-[10px] font-semibold text-main-white bg-button-hero-bg border border-main-white hover:bg-button-hero-bg-hover active:bg-button-hero-bg-hover rounded-[50px]"
+                className="w-max md:py-2 md:px-5 py-2 px-4 text-nowrap lg:text-[12px] text-[10px] font-semibold text-main-white bg-main-black border border-main-white hover:bg-button-bg-hover active:bg-button-hero-bg-hover rounded-[50px]"
               >
                 EXPLORE NOW
               </Link>
