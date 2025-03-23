@@ -6,8 +6,9 @@ import Image from "next/image";
 import forMen from "../../../images/forMen.png";
 import forWomen from "../../../images/forWomen.png";
 import bestDeals from "../../../images/bestDeals.png";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+// import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Link from "next/link";
+import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
 
 const ExploreCarousel = () => {
   const ExploreCards = [
@@ -38,11 +39,11 @@ const ExploreCarousel = () => {
             </div>
           </div>
         ))}
-        <button className="max-sm:hidden absolute top-[150px] left-[20px] w-[35px] h-[35px] flex justify-center items-center bg-header-bg hover:bg-main-white animate-pulse hover:animate-none cursor-pointer rounded-[50%] ">
-          {<FaChevronLeft />}
+        <button className="btn-shake-left absolute top-[45%] md:left-[30px] left-[10px] w-[35px] h-[35px] flex justify-center items-center text-custom-gray-darker hover:animate-none pointer-events-none rounded-[50%] ">
+          {<RxDoubleArrowLeft />}
         </button>
-        <button className="max-sm:hidden absolute top-[150px] right-[20px] w-[35px] h-[35px] flex justify-center items-center bg-header-bg hover:bg-main-white animate-pulse hover:animate-none cursor-pointer rounded-[50%] ">
-          {<FaChevronRight />}
+        <button className="btn-shake-right absolute top-[45%] md:right-[30px] right-[10px] w-[35px] h-[35px] flex justify-center items-center text-custom-gray-darker hover:animate-none pointer-events-none rounded-[50%] ">
+          {<RxDoubleArrowRight />}
         </button>
       </div>
     </div>

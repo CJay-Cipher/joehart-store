@@ -103,3 +103,55 @@ a {
   line-height: 1.5; /* Adjust line height */
   max-height: calc(1.5em * 2); /* Adjust max height for 2 lines */
 }
+
+@keyframes btnShakeLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(2px);
+  }
+
+  50% {
+    transform: translateX(-2px);
+  }
+
+  75% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes btnShakeRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(2px);
+  }
+
+  75% {
+    transform: translateX(-2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.btn-shake-left {
+  animation: btnShakeLeft 2s infinite;
+}
+
+.btn-shake-right {
+  animation: btnShakeRight 2s infinite;
+}
