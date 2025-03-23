@@ -146,7 +146,7 @@ const products: Product[] = [
   },
   {
     id: 14,
-    name: "Hermès Terre",
+    name: "Hermès Terre Versace Dylan Blue Versace Dylan Blue",
     price: "32000.00",
     oldPrice: "40000.00",
     imageUrl: "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/v/i/viktor_rolf_spice_bomb_dark_leather_edp_90ml.jpeg",
@@ -199,8 +199,8 @@ const Products = ({ wishlistIncreament, wishlistDecreament, cartIncrement, cartD
               />
             </div>
             <div className="md:p-3 p-2 flex-1 flex flex-col">
-              <h2 className="font-bold lg:text-[16px] text-[14px] max-3xs:truncate">{product.name}</h2>
-              <p className="text-custom-gray lg:text-[12px] text-[10px] 2xs:truncate">{product.description}</p>
+              <h2 className="font-bold lg:text-[16px] text-[14px] xs:truncate max-3xs:truncate">{product.name}</h2>
+              <p className="text-custom-gray lg:text-[12px] text-[10px] xs:truncate max-3xs:truncate">{product.description}</p>
               <div className="flex items-center">
                 {product.rating && (
                   <span className={`text-yellow-500`}>
