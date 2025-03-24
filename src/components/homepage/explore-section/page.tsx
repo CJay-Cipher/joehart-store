@@ -1,16 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 // import Link from "next/link";
 import forMen from "../../../images/forMen.png";
 import forWomen from "../../../images/forWomen.png";
 import bestDeals from "../../../images/bestDeals.png";
-// import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Link from "next/link";
-import { RxDoubleArrowLeft, RxDoubleArrowRight } from "react-icons/rx";
 
 const ExploreCarousel = () => {
+  // Specify the type for the ref as HTMLDivElement
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: -320, // Scroll left by 320px
+        behavior: "smooth", // Optional: Smooth scrolling
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: 320, // Scroll right by 320px
+        behavior: "smooth", // Optional: Smooth scrolling
+      });
+    }
+  };
   const ExploreCards = [
     { bgImage: forMen, href: "#", title: "FOR MEN", subtitle: "Explore classic, exotic and authentic perfumes for Men" },
     { bgImage: forWomen, href: "#", title: "FOR WOMEN", subtitle: "Explore classic, exotic and authentic perfumes for Women" },
@@ -20,7 +39,7 @@ const ExploreCarousel = () => {
 
   return (
     <div className="relative mx-auto w-[100%] max-w-[1480px] md:mt-6 mt-4 lg:px-8 md:px-6 px-4">
-      <div className="flex justify-between gap-2 overflow-x-auto hide-scrollbar">
+      <div className="flex justify-between gap-2 overflow-x-auto hide-scrollbar" ref={scrollRef}>
         {ExploreCards.map((card, index) => (
           <div key={index} className="relative">
             <Image src={card.bgImage} alt="card image" className="xl:min-w-[450px] md:min-w-[400px] sm:min-w-[350px] min-w-[320px]" />
@@ -39,11 +58,17 @@ const ExploreCarousel = () => {
             </div>
           </div>
         ))}
-        <button className="btn-shake-left absolute top-[45%] md:left-[30px] left-[10px] w-[35px] h-[35px] flex justify-center items-center text-custom-gray-darker hover:animate-none pointer-events-none rounded-[50%] ">
-          {<RxDoubleArrowLeft />}
+        <button
+          className="max-sm:hidden absolute top-[45%] left-[40px] w-[35px] h-[35px] flex justify-center items-center bg-header-bg hover:bg-main-white animate-pulse hover:animate-none cursor-pointer rounded-[50%]"
+          onClick={scrollLeft}
+        >
+          {<FaChevronLeft />}
         </button>
-        <button className="btn-shake-right absolute top-[45%] md:right-[30px] right-[10px] w-[35px] h-[35px] flex justify-center items-center text-custom-gray-darker hover:animate-none pointer-events-none rounded-[50%] ">
-          {<RxDoubleArrowRight />}
+        <button
+          className="max-sm:hidden absolute top-[45%] right-[40px] w-[35px] h-[35px] flex justify-center items-center bg-header-bg hover:bg-main-white animate-pulse hover:animate-none cursor-pointer rounded-[50%]"
+          onClick={scrollRight}
+        >
+          {<FaChevronRight />}
         </button>
       </div>
     </div>

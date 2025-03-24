@@ -17,7 +17,7 @@ const Hero = () => {
   ];
 
   return (
-    <div className="w-full font-montserrat lg:mt-[80px] md:mt-[60px] mt-[55px]">
+    <div className="w-full font-montserrat">
       <div className="relative mx-auto w-[100%] max-w-[2000px] xl:h-[500px] lg:h-[450px] md:h-[400px] h-[350px] p-0 m-0">
         <Image src={HeroImage} alt="Hero Image" layout="fill" objectFit="cover" className="absolute z-10" />
         <div className="relative z-20 flex flex-col justify-center w-[100%] max-w-[1480px] h-full xl:space-y-4 md:space-y-3 space-y-2 mx-auto lg:px-8 md:px-6 px-4">
