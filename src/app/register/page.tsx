@@ -15,7 +15,7 @@ const Register = () => {
           <SignUpContent />
         </div>
         <div className="relative flex items-center flex-col flex-1 overflow-y-auto bg-linear-to-bl from-custom-red-light to-custom-slate-400">
-          <div className="font-montserrat lg:p-4 p-2 flex justify-center items-center gap-[5px] xl:text-[18px] text-[16px] text-nowrap font-bold text-button-hero-bg-hover tracking-[0.9px]">
+          <div className="font-montserrat lg:p-4 p-2 flex justify-center items-center gap-[5px] xl:text-[18px] text-[16px] text-nowrap font-bold text-main-black tracking-[0.9px]">
             JoeHart
             <Image src={perfume} alt="Perfume" className="w-[26px] h-[26px]" />
             Fragrance
