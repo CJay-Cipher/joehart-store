@@ -9,8 +9,8 @@ import AuthPageContent from "@/components/AuthPageContent";
 
 const Register = () => {
   return (
-    <div className="font-outfit h-screen flex justify-center items-center">
-      <div className="h-screen max-h-[1500px] w-full max-w-[2000px] flex mx-auto shadow-2xl">
+    <div className="font-outfit h-[100svh] flex justify-center items-center">
+      <div className="h-[100svh] max-h-[1500px] w-full max-w-[2000px] flex mx-auto shadow-2xl">
         <div className="relative h-full max-md:hidden w-[40%] overflow-hidden">
           <Image width={200} height={200} src={signUpImage} alt="side image" className="w-full h-full object-center object-cover" />
           <AuthPageContent headerText="Join Us Today to Discover the Finest Deals on Premium Fragrances!" subText="Discover The Best Deals on top Fragrances" />
