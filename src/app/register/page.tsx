@@ -4,8 +4,8 @@ import signUpImage from "../../images/sideBg.png";
 import gridBg from "../../images/bg-grid-lighter.svg";
 import SignUpForm from "./SignUpForm";
 import perfume from "../../images/perfume.png";
-import SignUpContent from "./SignUpContent";
 import Link from "next/link";
+import AuthPageContent from "@/components/AuthPageContent";
 
 const Register = () => {
   return (
@@ -13,18 +13,21 @@ const Register = () => {
       <div className="h-screen max-h-[1500px] w-full max-w-[2000px] flex mx-auto shadow-2xl">
         <div className="relative h-full max-md:hidden w-[40%] overflow-hidden">
           <Image width={200} height={200} src={signUpImage} alt="side image" className="w-full h-full object-center object-cover" />
-          <SignUpContent />
+          <AuthPageContent headerText="Join Us Today to Discover the Finest Deals on Premium Fragrances!" subText="Discover The Best Deals on top Fragrances" />
         </div>
         <div className="relative flex items-center flex-col flex-1 overflow-y-auto bg-linear-to-bl from-custom-red-light to-custom-slate-400">
           <Link
             href="/"
-            className="z-50 font-montserrat lg:p-4 p-2 flex justify-center items-center gap-[5px] xl:text-[18px] text-[16px] text-nowrap font-bold text-main-black tracking-[0.9px] cursor-pointer"
+            className="z-50 self-start font-montserrat lg:h-12 h-8  lg:p-4 p-2 flex justify-center items-center gap-[3px] xl:text-[18px] text-[16px] text-nowrap font-bold text-main-black tracking-[0.9px] cursor-pointer"
           >
-            JoeHart
             <Image src={perfume} alt="Perfume" className="w-[26px] h-[26px]" />
-            Fragrance
+            <span className="translate-y-[1px]">JoeHart </span>
           </Link>
-          <SignUpContent hideContent={true} />
+          <AuthPageContent
+            headerText="Join Us Today to Discover the Finest Deals on Premium Fragrances!"
+            subText="Discover The Best Deals on top Fragrances"
+            hideContent={true}
+          />
           <Image width={200} height={200} src={gridBg} alt="abstract" className="absolute w-full h-full object-center object-cover" />
           <SignUpForm />
         </div>
