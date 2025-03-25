@@ -10,10 +10,8 @@ const ForgotPasswordForm = () => {
     <div className="flex justify-center items-center min-h-max w-full z-10 px-4">
       <div className="bg-main-white w-full xl:max-w-[500px] md:max-w-[450px] xs:max-w-[400px] xl:py-8 lg:py-6 p-4 border border-shadow lg:rounded-[20px] rounded-[15px] shadow-xl">
         <div className="text-center md:space-y-2 space-y-1 xl:pb-10 md:pb-8 pb-6">
-          <h1 className="lg:text-[28px] md:text-[24px] text-[20px] text-button-bg font-bold leading-[1.2] tracking-tight">Forgot Password</h1>
-          <p className="md:text-[13px] text-[12px] text-custom-gray pl-[2px]">
-            We will send a link to reset your <br className="md:hidden" /> password to your mail.
-          </p>
+          <h1 className="lg:text-[28px] md:text-[24px] text-[20px] text-custom-blue font-bold leading-[1.2] tracking-tight">Forgot Password</h1>
+          <p className="md:text-[13px] text-[12px] text-custom-gray pl-[2px]">We will send a link to reset your password to your mail.</p>
         </div>
         <form action="" className="flex flex-col items-center">
           <div className="w-full flex flex-col items-center md:gap-3 gap-2">

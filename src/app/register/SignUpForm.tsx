@@ -16,7 +16,7 @@ const SignUpForm = () => {
     <div className="md:flex-1 flex justify-center items-center min-h-max w-full z-10 md:pt-6 p-4">
       <div className="bg-main-white w-full xl:max-w-[600px] lg:max-w-[530px] md:max-w-[520px] xs:max-w-[350px] xl:p-6 lg:p-5 p-4 border border-shadow lg:rounded-[20px] rounded-[15px] shadow-xl">
         <div className="text-center xl:pb-10 md:pb-8 pb-6">
-          <h1 className="lg:text-[30px] md:text-[28px] text-[22px] text-button-bg font-bold leading-[1.2] tracking-tight">Sign Up</h1>
+          <h1 className="lg:text-[30px] md:text-[28px] text-[22px] text-custom-blue font-bold leading-[1.2] tracking-tight">Sign Up</h1>
           <p className="md:text-[13px] text-[12px] text-custom-gray pl-[2px]">Register to see amazing deals</p>
         </div>
         <form action="" className="flex flex-col items-center">
