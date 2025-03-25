@@ -20,8 +20,8 @@ const Register = () => {
             href="/"
             className="z-50 self-start font-montserrat lg:h-12 h-8  lg:p-4 p-2 flex justify-center items-center gap-[3px] xl:text-[18px] text-[16px] text-nowrap font-bold text-main-black tracking-[0.9px] cursor-pointer"
           >
-            <Image src={perfume} alt="Perfume" className="w-[26px] h-[26px]" />
-            <span className="translate-y-[1px]">JoeHart </span>
+            <Image src={perfume} alt="Perfume" className="xl:w-[26px] xl:h-[26px] md:w-[24px] md:h-[24px] w-[20px] h-[20px]" />
+            <span className="translate-y-[0.8px] xl:text-[18px] md:text-[16px] text-[14px]">JoeHart </span>
           </Link>
           <AuthPageContent
             headerText="Join Us Today to Discover the Finest Deals on Premium Fragrances!"
