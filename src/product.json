@@ -1,0 +1,128 @@
+{
+  "success": true,
+  "statusCode": 200,
+  "message": "Successfully retrieved the products",
+  "data": {
+    "products": [
+      {
+        "thumbnail": {
+          "id": "67df8251dafbfcacc51c452c",
+          "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742701137/product_images/ucljlmsshikowaeaw5kg.png",
+          "publicId": "product_images/ucljlmsshikowaeaw5kg"
+        },
+        "_id": "67df8250ed05071e8dd240cc",
+        "title": "perfume9",
+        "description": "",
+        "brandName": "",
+        "currentPrice": 30,
+        "previousPrice": 50,
+        "discount": 40,
+        "volume": 0,
+        "categories": [{ "categoryId": "67df8223ed05071e8dd240c9", "name": "cosmetics", "_id": "67df8250ed05071e8dd240cd", "id": "67df8250ed05071e8dd240cd" }],
+        "quantityInStock": 0,
+        "averageRating": 0,
+        "addedBy": "67d49abd796709ac04791b0a",
+        "isFeatured": false,
+        "additionalImages": [
+          {
+            "_id": "67df8253dafbfcacc51c452e",
+            "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742701138/product_images/kderh1zz8cmb9wnjhusf.png",
+            "publicId": "product_images/kderh1zz8cmb9wnjhusf",
+            "id": "67df8253dafbfcacc51c452e"
+          },
+          {
+            "_id": "67df8253dafbfcacc51c4530",
+            "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742701139/product_images/yv544zzpwqqgqlxknrjf.png",
+            "publicId": "product_images/yv544zzpwqqgqlxknrjf",
+            "id": "67df8253dafbfcacc51c4530"
+          }
+        ],
+        "createdAt": "2025-03-23T03:38:56.805Z",
+        "updatedAt": "2025-03-23T03:38:59.871Z",
+        "v": 1,
+        "id": "67df8250ed05071e8dd240cc"
+      },
+      {
+        "thumbnail": {
+          "_id": "67e1e911589aba1eb0f1d546",
+          "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742858512/product_images/v8qwuqetckqsvjz2lloa.png",
+          "publicId": "product_images/v8qwuqetckqsvjz2lloa"
+        },
+        "_id": "67e1e910f857ca588fd8fea3",
+        "title": "perfume9",
+        "description": "",
+        "brandName": "",
+        "currentPrice": 30,
+        "previousPrice": 50,
+        "discount": 40,
+        "volume": 0,
+        "categories": [{ "categoryId": "67df8223ed05071e8dd240c9", "name": "cosmetics", "_id": "67e1e910f857ca588fd8fea4", "id": "67e1e910f857ca588fd8fea4" }],
+        "quantityInStock": 0,
+        "averageRating": 0,
+        "addedBy": "67d49abd796709ac04791b0a",
+        "isFeatured": false,
+        "additionalImages": [
+          {
+            "_id": "67e1e912589aba1eb0f1d548",
+            "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742858513/product_images/goklluiu2dusavf2cyt0.png",
+            "publicId": "product_images/goklluiu2dusavf2cyt0",
+            "id": "67e1e912589aba1eb0f1d548"
+          },
+          {
+            "_id": "67e1e913589aba1eb0f1d54a",
+            "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742858514/product_images/elynkx3wqk3qsbhxq93w.png",
+            "publicId": "product_images/elynkx3wqk3qsbhxq93w",
+            "id": "67e1e913589aba1eb0f1d54a"
+          }
+        ],
+        "createdAt": "2025-03-24T23:21:52.135Z",
+        "updatedAt": "2025-03-24T23:21:55.620Z",
+        "v": 1,
+        "id": "67e1e910f857ca588fd8fea3"
+      },
+      {
+        "thumbnail": {
+          "_id": "67e1f4a1d2454b97d2320506",
+          "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742861472/product_images/lntj9rt2nvu6due5bykz.png",
+          "publicId": "product_images/lntj9rt2nvu6due5bykz"
+        },
+        "_id": "67e1f4a09f16f03edaacc2cb",
+        "title": "perfume9",
+        "description": "",
+        "brandName": "phone",
+        "currentPrice": 30,
+        "previousPrice": 75,
+        "discount": 60,
+        "volume": 0,
+        "categories": [
+          { "categoryId": "67df8223ed05071e8dd240c9", "name": "cosmetics", "_id": "67e1f4a09f16f03edaacc2cc", "id": "67e1f4a09f16f03edaacc2cc" },
+          { "categoryId": "67df3fe2d7642962798aa893", "name": "fashion", "_id": "67e1f4a09f16f03edaacc2cd", "id": "67e1f4a09f16f03edaacc2cd" }
+        ],
+        "quantityInStock": 0,
+        "averageRating": 0,
+        "addedBy": "67d49abd796709ac04791b0a",
+        "isFeatured": false,
+        "additionalImages": [
+          {
+            "_id": "67e1f4a1d2454b97d2320508",
+            "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742861472/product_images/uavjaxy8uyp3vaodsixp.png",
+            "publicId": "product_images/uavjaxy8uyp3vaodsixp",
+            "id": "67e1f4a1d2454b97d2320508"
+          },
+          {
+            "_id": "67e1f4a2d2454b97d232050a",
+            "url": "https://res.cloudinary.com/dw2i56kc5/image/upload/v1742861473/product_images/swbmfp9ba5odosvjlwiv.png",
+            "publicId": "product_images/swbmfp9ba5odosvjlwiv",
+            "id": "67e1f4a2d2454b97d232050a"
+          }
+        ],
+        "createdAt": "2025-03-25T00:11:12.443Z",
+        "updatedAt": "2025-03-25T00:11:14.774Z",
+        "_v": 1,
+        "id": "67e1f4a09f16f03edaacc2cb"
+      }
+    ],
+    "metaData": { "totalData": 5, "totalPages": 2, "currentPage": 1, "hasNextPage": true, "nextPage": 2, "hasPrevPage": false, "prevPage": null }
+  }
+}
+{"success":true,"statusCode":200,"message":"Successfully retrieved the products","data":{"products":[{"thumbnail":{"id":"67e1e954d2454b97d23204ee","url":"https://res.cloudinary.com/dw2i56kc5/image/upload/v1742858579/product_images/fhtdehyyrgoqzdvuiugw.png","publicId":"product_images/fhtdehyyrgoqzdvuiugw"},"_id":"67e1e9536f109846b359466e","title":"perfume9","description":"","brandName":"","currentPrice":30,"previousPrice":50,"discount":40,"volume":0,"categories":[{"categoryId":"67df3fe2d7642962798aa893","name":"fashion","_id":"67e1e9536f109846b359466f","id":"67e1e9536f109846b359466f"}],"quantityInStock":0,"averageRating":0,"addedBy":"67d49abd796709ac04791b0a","isFeatured":false,"additionalImages":[{"_id":"67e1e955d2454b97d23204f0","url":"https://res.cloudinary.com/dw2i56kc5/image/upload/v1742858580/product_images/mu2etswedoce18xqrq2b.png","publicId":"product_images/mu2etswedoce18xqrq2b","id":"67e1e955d2454b97d23204f0"},{"_id":"67e1e956d2454b97d23204f2","url":"https://res.cloudinary.com/dw2i56kc5/image/upload/v1742858581/product_images/zlfnvmv6loxiuezjjts4.png","publicId":"product_images/zlfnvmv6loxiuezjjts4","id":"67e1e956d2454b97d23204f2"}],"createdAt":"2025-03-24T23:22:59.948Z","updatedAt":"2025-03-24T23:23:02.351Z","v":1,"id":"67e1e9536f109846b359466e"},{"thumbnail":{"_id":"67e1f461d2454b97d2320500","url":"https://res.cloudinary.com/dw2i56kc5/image/upload/v1742861408/product_images/wfbtm9sdn715khbpqzqq.png","publicId":"product_images/wfbtm9sdn715khbpqzqq"},"_id":"67e1f4609f16f03edaacc2c6","title":"perfume9","description":"","brandName":"phone","currentPrice":30,"previousPrice":75,"discount":60,"volume":0,"categories":[{"categoryId":"67df3fe2d7642962798aa893","name":"fashion","_id":"67e1f4609f16f03edaacc2c7","id":"67e1f4609f16f03edaacc2c7"}],"quantityInStock":0,"averageRating":0,"addedBy":"67d49abd796709ac04791b0a","isFeatured":false,"additionalImages":[{"_id":"67e1f462d2454b97d2320502","url":"https://res.cloudinary.com/dw2i56kc5/image/upload/v1742861409/product_images/j2fio9pcqpdzcwcmou7s.png","publicId":"product_images/j2fio9pcqpdzcwcmou7s","id":"67e1f462d2454b97d2320502"},{"_id":"67e1f463d2454b97d2320504","url":"https://res.cloudinary.com/dw2i56kc5/image/upload/v1742861410/product_images/abj3jf7u04a3i7njvsof.png","publicId":"product_images/abj3jf7u04a3i7njvsof","id":"67e1f463d2454b97d2320504"}],"createdAt":"2025-03-25T00:10:08.994Z","updatedAt":"2025-03-25T00:10:11.464Z","_v":1,"id":"67e1f4609f16f03edaacc2c6"}],"metaData":{"totalData":5,"totalPages":2,"currentPage":2,"hasNextPage":false,"nextPage":null,"hasPrevPage":true,"prevPage":1}}}
