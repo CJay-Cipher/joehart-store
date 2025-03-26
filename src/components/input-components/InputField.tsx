@@ -20,7 +20,7 @@ const InputField = ({ label, type, placeholder, value, onChange, required = fals
       <input
         type={type}
         id={id}
-        className="w-full xl:h-[45px] md:h-[40px] 2xs:h-[38px] h-[37px] xs:p-3 p-2 lg:text-[16px] md:text-[14px] text-[12px]  rounded-[5px] border border-custom-gray-dark focus:outline-custom-blue"
+        className="w-full xl:h-[45px] md:h-[40px] 2xs:h-[38px] h-[37px] xs:p-3 p-2 lg:text-[16px] md:text-[14px] text-[12px] rounded-[5px] border border-custom-slate-400 focus:outline-custom-blue placeholder:text-custom-gray-dark placeholder:font-light"
         placeholder={placeholder}
         value={value}
         onChange={onChange}

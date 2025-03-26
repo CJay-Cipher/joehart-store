@@ -17,7 +17,7 @@ const SignUpForm = () => {
       <div className="bg-main-white w-full xl:max-w-[600px] lg:max-w-[530px] md:max-w-[520px] xs:max-w-[350px] xl:p-6 lg:p-5 p-4 border border-shadow lg:rounded-[20px] rounded-[15px] shadow-xl">
         <div className="text-center xl:pb-10 md:pb-8 pb-6">
           <h1 className="lg:text-[30px] md:text-[28px] text-[22px] text-custom-blue font-bold leading-[1.2] tracking-tight">Sign Up</h1>
-          <p className="md:text-[13px] text-[12px] text-custom-gray pl-[2px]">Register to see amazing deals</p>
+          <p className="max-md:font-light md:text-[13px] text-[12px] text-main-black pl-[2px]">Register to see amazing deals</p>
         </div>
         <form action="" className="flex flex-col items-center">
           <div className="w-full flex flex-col items-center md:gap-3 gap-2">
@@ -31,7 +31,7 @@ const SignUpForm = () => {
             </div>
             <div className="w-full flex max-md:flex-col items-center md:gap-3 gap-2">
               <div className="w-full">
-                <InputField label="Email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <InputField label="Email" type="email" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="w-full">
                 <InputField label="Phone" type="tel" placeholder="Phone number" value={phone} onChange={(e) => setPhone(e.target.value)} />
