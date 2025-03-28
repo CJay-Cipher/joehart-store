@@ -11,7 +11,7 @@ const ForgotPassword = () => {
     <div className="font-outfit h-[100svh] flex justify-center items-center">
       <div className="h-[100svh] max-h-[1500px] w-full max-w-[2000px] flex mx-auto shadow-2xl">
         <div className="relative flex items-center flex-col flex-1 overflow-y-auto bg-linear-to-bl from-custom-red-light to-custom-slate-400">
-          <Image width={200} height={200} src={gridBg} alt="abstract" className="absolute w-full h-full object-center object-cover" />
+          <Image quality={100} src={gridBg} alt="abstract" className="absolute w-full h-full object-center object-cover" />
           <Link
             href="/"
             className="z-50 self-start font-outfit lg:h-12 h-8 lg:p-4 p-2 flex justify-center items-center gap-[3px] xl:text-[18px] text-[16px] text-nowrap font-bold text-main-black tracking-[0.9px] cursor-pointer"

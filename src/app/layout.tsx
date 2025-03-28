@@ -18,7 +18,7 @@ const alumniSans = Alumni_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "JoeHart Empire Fragrance",
+  title: "JoeHart Empire Fragrance - Your Destination for Exquisite Perfumes",
   description: "Perfume Online Store",
 };
 

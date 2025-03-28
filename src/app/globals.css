@@ -68,6 +68,7 @@
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 body {
   font-family: Verdana, Helvetica, sans-serif;
