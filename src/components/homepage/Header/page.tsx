@@ -75,10 +75,10 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
         <nav className="font-montserrat relative flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 text-[12px]">
           <Link
             href="/"
-            className="flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-black  hover:text-button-bg tracking-[0.9px] md:cursor-pointer"
+            className="z-10 flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-main-black hover:text-button-bg tracking-[0.9px] cursor-pointer"
           >
             <Image src={perfume} alt="Perfume" className="max-xs:hidden w-[26px] h-[26px]" />
-            JoeHart
+            JoeHart.
           </Link>
 
           <NavLinks navLinks={navLinks} activePageName={activePageName} />
