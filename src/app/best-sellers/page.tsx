@@ -5,13 +5,23 @@ import Header from "@/components/homepage/Header/page";
 import Products from "@/components/products/page";
 import PagePath from "@/components/homepage/PagePath";
 
-export default function Home() {
+type Product = {
+  id: number;
+  name: string;
+  price: string;
+  oldPrice?: string;
+  imageUrl: string;
+  description?: string;
+  rating?: number;
+};
+
+export default function BestSeller() {
   const [wishlistCount, setWishlistCount] = useState<number>(0);
   const [cartCount, setCartCount] = useState<number>(0);
   const [showHeader, setShowHeader] = useState<boolean>(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to track timeout
 
-  const wishlistIncrement = () => {
+  const addToWishlist = () => {
     setWishlistCount((prevCount) => prevCount + 1);
   };
 
@@ -19,8 +29,9 @@ export default function Home() {
     setWishlistCount((prevCount) => prevCount - 1);
   };
 
-  const cartIncrement = () => {
+  const addToCart = (productData: Product) => {
     setCartCount((prevCount) => prevCount + 1);
+    console.log("product data:", productData);
   };
 
   const cartDecrement = () => {
@@ -33,13 +44,11 @@ export default function Home() {
     // Clear existing timeout before setting a new one
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
-      console.log("Clear setTimeout");
     }
 
     // Hide the header after 5 seconds
     timeoutRef.current = setTimeout(() => {
       setShowHeader(false);
-      console.log("showHeader set to:", false);
     }, 5000); // 5000 milliseconds = 5 seconds
 
     // Clean up the timeout when the component unmounts
@@ -52,9 +61,11 @@ export default function Home() {
 
   return (
     <div className="font-montserrat max-sm:bg-custom-gray-light">
-      <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} activePageName="Best Sellers" />
+      <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} activePageName="Home" />
+      {/* <Hero />
+      <ExploreCarousel /> */}
       <PagePath />
-      <Products wishlistIncreament={wishlistIncrement} wishlistDecreament={wishlistDecrement} cartIncrement={cartIncrement} cartDecrement={cartDecrement} />
+      <Products addToWishlist={addToWishlist} wishlistDecreament={wishlistDecrement} addToCart={addToCart} cartDecrement={cartDecrement} />
     </div>
   );
 }

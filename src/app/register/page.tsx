@@ -5,7 +5,7 @@ import gridBg from "../../images/bg-grid-lighter.svg";
 import SignUpForm from "./SignUpForm";
 import perfume from "../../images/perfume.png";
 import Link from "next/link";
-import AuthPageContent from "@/components/AuthPageContent";
+import AuthPageContent from "@/components/auth/AuthPageContent";
 
 const Register = () => {
   return (

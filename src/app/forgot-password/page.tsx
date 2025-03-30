@@ -4,7 +4,7 @@ import gridBg from "../../images/bg-grid-lighter.svg";
 import perfume from "../../images/perfume.png";
 import Link from "next/link";
 import ForgotPasswordForm from "./ForgotPasswordForm";
-import AuthPageContent from "@/components/AuthPageContent";
+import AuthPageContent from "@/components/auth/AuthPageContent";
 
 const ForgotPassword = () => {
   return (

@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "name": "Scandal Eau de Parfum",
+    "price": "23000.00",
+    "oldPrice": "30000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/b/v/bvlgari_man_in_black_parfum_100ml.jpg",
+    "description": "Amour Guidance 46 Extrait 100ml",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Valentino Uomo",
+    "price": "25000.00",
+    "oldPrice": "35000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/f/r/french_avenue_azure_aoud_edp_100ml.jpeg",
+    "description": "Valentino Uomo Eau de Toilette",
+    "rating": 4.0
+  },
+  {
+    "id": 3,
+    "name": "Burberry Brit",
+    "price": "21000.00",
+    "oldPrice": "25000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/k/h/khadlaj_karus_amber_gold_edp_100ml-2.jpg",
+    "description": "Burberry Brit Eau de Toilette",
+    "rating": 4.2
+  },
+  {
+    "id": 4,
+    "name": "YSL La Nuit",
+    "price": "30000.00",
+    "oldPrice": "40000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/a/f/afnan_his_highness_111_edp_100ml-6.jpg",
+    "description": "Yves Saint Laurent La Nuit De L'Homme",
+    "rating": 4.7
+  },
+  {
+    "id": 5,
+    "name": "Dior Sauvage",
+    "price": "35000.00",
+    "oldPrice": "45000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/f/r/french_avenue_sultan_the_conqueror_edp_80ml.jpeg",
+    "description": "Dior Sauvage Eau de Toilette",
+    "rating": 4.9
+  },
+  {
+    "id": 6,
+    "name": "Gucci Guilty",
+    "price": "28000.00",
+    "oldPrice": "34000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/a/r/aro_fac_suger_intense_edp_100ml.jpeg",
+    "description": "Gucci Guilty Pour Homme",
+    "rating": 4.6
+  },
+  {
+    "id": 7,
+    "name": "Chanel No. 5",
+    "price": "45000.00",
+    "oldPrice": "55000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/l/a/lattafa_yara_yara_candy_5th_anniversary_edition_2_piece_gift_set_edp_100ml-1.jpg",
+    "description": "Chanel No. 5 Eau de Parfum",
+    "rating": 5.0
+  },
+  {
+    "id": 8,
+    "name": "Hermès Terre",
+    "price": "32000.00",
+    "oldPrice": "34000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/v/i/viktor_rolf_spice_bomb_dark_leather_edp_90ml.jpeg",
+    "description": "Hermès Terre D'Hermès",
+    "rating": 4.8
+  },
+  {
+    "id": 9,
+    "name": "Versace Dylan Blue",
+    "price": "27000.00",
+    "oldPrice": "33000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/v/a/valentino_born_in_roma_coral_fantasy_edt_100ml.jpeg",
+    "description": "Versace Dylan Blue Pour Homme",
+    "rating": 4.3
+  },
+  {
+    "id": 10,
+    "name": "Paco Rabanne 1 Million",
+    "price": "24000.00",
+    "oldPrice": "30000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/y/v/yves_saint_laurent_black_opium_glitter_edp_90ml.jpg",
+    "description": "Paco Rabanne 1 Million Eau de Toilette",
+    "rating": 4.4
+  },
+  {
+    "id": 11,
+    "name": "Dior Sauvage",
+    "price": "35000.00",
+    "oldPrice": "45000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/f/r/french_avenue_sultan_the_conqueror_edp_80ml.jpeg",
+    "description": "Dior Sauvage Eau de Toilette",
+    "rating": 4.9
+  },
+  {
+    "id": 12,
+    "name": "Gucci Guilty",
+    "price": "28000.00",
+    "oldPrice": "34000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/a/r/aro_fac_suger_intense_edp_100ml.jpeg",
+    "description": "Gucci Guilty Pour Homme",
+    "rating": 4.6
+  },
+  {
+    "id": 13,
+    "name": "Chanel No. 5",
+    "price": "45000.00",
+    "oldPrice": "55000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/l/a/lattafa_yara_yara_candy_5th_anniversary_edition_2_piece_gift_set_edp_100ml-1.jpg",
+    "description": "Chanel No. 5 Eau de Parfum",
+    "rating": 5.0
+  },
+  {
+    "id": 14,
+    "name": "Hermès Terre Versace Dylan Blue Versace Dylan Blue",
+    "price": "32000.00",
+    "oldPrice": "40000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/v/i/viktor_rolf_spice_bomb_dark_leather_edp_90ml.jpeg",
+    "description": "Hermès Terre D'Hermès",
+    "rating": 4.8
+  },
+  {
+    "id": 15,
+    "name": "Versace Dylan Blue",
+    "price": "27000.00",
+    "oldPrice": "33000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/v/a/valentino_born_in_roma_coral_fantasy_edt_100ml.jpeg",
+    "description": "Versace Dylan Blue Pour Homme",
+    "rating": 4.3
+  },
+  {
+    "id": 16,
+    "name": "Paco Rabanne 1 Million",
+    "price": "24000.00",
+    "oldPrice": "30000.00",
+    "imageUrl": "https://fragrances.com.ng/media/catalog/product/cache/3f352caa9845cb86b827745a9fdca65c/y/v/yves_saint_laurent_black_opium_glitter_edp_90ml.jpg",
+    "description": "Paco Rabanne 1 Million Eau de Toilette",
+    "rating": 4.4
+  }
+]

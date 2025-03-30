@@ -47,7 +47,6 @@ const Header = ({ wishlistCount, cartCount, showHeader, activePageName }: Header
       }
       lastScrollY = window.scrollY;
     };
-    console.log("showHeader state:", showHeader);
 
     if (showHeader) {
       setIsHeaderVisible(true); // Show the header
@@ -73,7 +72,10 @@ const Header = ({ wishlistCount, cartCount, showHeader, activePageName }: Header
         }`}
       >
         <nav className="font-montserrat relative flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 text-[12px]">
-          <Link href="/" className="flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-black tracking-[0.9px]">
+          <Link
+            href="/"
+            className="flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-black tracking-[0.9px] md:cursor-pointer"
+          >
             <Image src={perfume} alt="Perfume" className="max-xs:hidden w-[26px] h-[26px]" />
             JoeHart
           </Link>
@@ -95,7 +97,7 @@ const Header = ({ wishlistCount, cartCount, showHeader, activePageName }: Header
           <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center xl:gap-4 md:gap-3 gap-2">
             {/* Wishlist and Cart buttons */}
             <Link
-              href="#"
+              href="/wishlist"
               className="relative flex items-center gap-[2px] xl:text-[12px] text-[11px] text-custom-gray-darker text-nowrap font-medium rounded-[50px] border border-transparent transition-color duration-200 hover:text-main-black max-md:hover:scale-[1.15]"
             >
               <span className="max-md:hidden">Wishlist</span>
@@ -108,7 +110,7 @@ const Header = ({ wishlistCount, cartCount, showHeader, activePageName }: Header
             </Link>
 
             <Link
-              href="#"
+              href="/cart"
               className="relative flex items-center gap-[2px] xl:text-[12px] text-[11px] text-custom-gray-darker text-nowrap font-medium rounded-[50px] border border-transparent transition-color duration-200 hover:text-main-black max-md:hover:scale-[1.15]"
             >
               <span className="max-md:hidden">Cart</span>
