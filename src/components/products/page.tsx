@@ -118,40 +118,6 @@ const Products = ({ addToWishlist, addToCart }: ProductsProps) => {
           </div>
         ))}
       </div>
-
-      <div className="flex flex-col justify-center items-center mx-auto mt-8">
-        <h2>Add and Remove from Wishlist Test</h2>
-        <div className="flex w-[300px] p-1 border border-red-400">
-          <button
-            // onClick={addToWishlist}
-            className="xl:w-[200px] xl: border-custom-gray-darkh-[50px] [5px]:w-[185px] lg:h-[45px] md:w-[170px] md:h-[40px] w-[155px] h-[35px] flex justify-center items-center bg-button-hero-bg hover:bg-button-hero-bg-hover border border-main-white rounded-[50px] text-nowrap xl:text-[20px] lg:text-[18px] md:text-[16px] text-[14px] font-semibold text-main-white"
-          >
-            Add
-          </button>
-          <button
-            // onClick={wishlistDecreament}
-            className="xl:w-[200px] xl:h-[50px] lg:w-[185px] lg:h-[45px] md:w-[170px] md:h-[40px] w-[155px] h-[35px] flex justify-center items-center bg-button-hero-bg hover:bg-button-hero-bg-hover border border-main-white rounded-[50px] text-nowrap xl:text-[20px] lg:text-[18px] md:text-[16px] text-[14px] font-semibold text-main-white"
-          >
-            Remove
-          </button>
-        </div>
-
-        <h2 className="mt-4">Add and Remove from cart Test</h2>
-        <div className="flex w-[300px] p-1 border border-red-400">
-          <button
-            // onClick={addToCart}
-            className="xl:w-[200px] xl:h-[50px] lg:w-[185px] lg:h-[45px] md:w-[170px] md:h-[40px] w-[155px] h-[35px] flex justify-center items-center bg-button-hero-bg hover:bg-button-hero-bg-hover border border-main-white rounded-[50px] text-nowrap xl:text-[20px] lg:text-[18px] md:text-[16px] text-[14px] font-semibold text-main-white"
-          >
-            Add
-          </button>
-          <button
-            // onClick={cartDecrement}
-            className="xl:w-[200px] xl:h-[50px] lg:w-[185px] lg:h-[45px] md:w-[170px] md:h-[40px] w-[155px] h-[35px] flex justify-center items-center bg-button-hero-bg hover:bg-button-hero-bg-hover border border-main-white rounded-[50px] text-nowrap xl:text-[20px] lg:text-[18px] md:text-[16px] text-[14px] font-semibold text-main-white"
-          >
-            Remove
-          </button>
-        </div>
-      </div>
     </div>
   );
 };

@@ -75,7 +75,7 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
         <nav className="font-montserrat relative flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 text-[12px]">
           <Link
             href="/"
-            className="flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-black tracking-[0.9px] md:cursor-pointer"
+            className="flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-black  hover:text-button-bg tracking-[0.9px] md:cursor-pointer"
           >
             <Image src={perfume} alt="Perfume" className="max-xs:hidden w-[26px] h-[26px]" />
             JoeHart
@@ -83,7 +83,7 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
 
           <NavLinks navLinks={navLinks} activePageName={activePageName} />
 
-          <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center xl:gap-6 md:gap-5 gap-4">
+          <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center gap-4">
             <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCount} />
             <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCount} />
             <HeaderBtnCTA href="/register" buttonText="Sign Up" Icon={BsPersonPlus} isDarkBg={true} />

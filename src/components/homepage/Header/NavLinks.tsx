@@ -20,9 +20,13 @@ const NavLinks = ({ navLinks, activePageName }: NavLinksProps) => {
         <Link
           key={index}
           href={link.href || "#"}
-          className={`px-[14px] py-[5px] xl:text-[12px] text-[10px] rounded-[30px] border border-transparent transition-color duration-200 text-main-text text-nowrap cursor-pointer ${
+          className={`px-[14px] py-[5px] xl:text-[12px] text-[10px] rounded-[30px] border transition-color duration-200 text-main-text text-nowrap cursor-pointer ${
             link.hasIcon && "flex items-center gap-[2px]"
-          } ${activePageName?.toUpperCase() === link.name.toUpperCase() ? "font-bold bg-main-white" : "font-semibold hover:text-main-white hover:bg-button-bg-hover"}`}
+          } ${
+            activePageName?.toUpperCase() === link.name.toUpperCase()
+              ? "font-bold bg-main-white border border-custom-slate-400"
+              : "font-semibold border-transparent hover:text-main-white hover:bg-button-bg-hover"
+          }`}
         >
           {link.name}
           {link.hasIcon && <IoChevronDownOutline className="h-[16px] w-[16px]" />}

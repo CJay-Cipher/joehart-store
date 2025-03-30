@@ -61,7 +61,7 @@ export default function BestSeller() {
 
   return (
     <div className="font-montserrat max-sm:bg-custom-gray-light">
-      <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} activePageName="Home" />
+      <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} activePageName="Best Sellers" />
       {/* <Hero />
       <ExploreCarousel /> */}
       <PagePath />
