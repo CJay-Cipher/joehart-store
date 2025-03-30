@@ -1,13 +1,13 @@
 import React from "react";
 
-interface HeaderBtnCTAProps {
+type HeaderBtnCTAProps = {
   href: string;
   buttonText?: string;
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   isDarkBg?: boolean;
-}
+};
 
-const HeaderBtnCTA: React.FC<HeaderBtnCTAProps> = ({ href, buttonText, Icon, isDarkBg }) => {
+const HeaderBtnCTA = ({ href, buttonText, Icon, isDarkBg }: HeaderBtnCTAProps) => {
   return (
     <a
       href={href}

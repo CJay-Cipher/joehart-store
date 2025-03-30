@@ -3,14 +3,15 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import NavLinks from "./NavLinks";
+import MenuIconOpenClose from "./MenuIconOpenClose";
+import HeaderBtnCTA from "./HeaderBtnCTA";
 import perfume from "../../../images/perfume.png";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { BsPersonPlus } from "react-icons/bs";
 import { FiLogIn } from "react-icons/fi";
-import { IoChevronDownOutline } from "react-icons/io5";
-import MenuIconOpenClose from "./MenuIconOpenClose";
-import HeaderBtnCTA from "./HeaderBtnCTA";
+import ActionCounter from "./ActionCounter";
 
 type HeaderProps = {
   wishlistCount?: number;
@@ -27,7 +28,7 @@ const navLinks = [
   { name: "BRANDS", href: "/brands" },
 ];
 
-const Header = ({ wishlistCount, cartCount, showHeader, activePageName }: HeaderProps) => {
+const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }: HeaderProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
@@ -79,50 +80,12 @@ const Header = ({ wishlistCount, cartCount, showHeader, activePageName }: Header
             <Image src={perfume} alt="Perfume" className="max-xs:hidden w-[26px] h-[26px]" />
             JoeHart
           </Link>
-          <div className="flex items-center xl:gap-2 gap-1 max-lg:hidden">
-            {navLinks.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href || "#"}
-                className={`px-[14px] py-[5px] xl:text-[12px] text-[10px] rounded-[30px] border border-transparent transition-color duration-200 text-main-text text-nowrap cursor-pointer ${
-                  link.hasIcon && "flex items-center gap-[2px]"
-                } ${activePageName?.toUpperCase() == link.name ? "font-bold bg-main-white" : "font-semibold hover:text-main-white hover:bg-button-bg-hover"}`}
-              >
-                {link.name}
-                {link.hasIcon && <IoChevronDownOutline className="h-[16px] w-[16px]" />}
-              </Link>
-            ))}
-          </div>
 
-          <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center xl:gap-4 md:gap-3 gap-2">
-            {/* Wishlist and Cart buttons */}
-            <Link
-              href="/wishlist"
-              className="relative flex items-center gap-[2px] xl:text-[12px] text-[11px] text-custom-gray-darker text-nowrap font-medium rounded-[50px] border border-transparent transition-color duration-200 hover:text-main-black max-md:hover:scale-[1.15]"
-            >
-              <span className="max-md:hidden">Wishlist</span>
-              <IoMdHeartEmpty className="h-[18px] w-[18px]" />
-              {wishlistCount != 0 && (
-                <span className="absolute flex justify-center items-center md:h-[18px] md:w-[18px] h-[15px] w-[15px] md:top-[-12px] top-[-10px] right-[-8px] md:text-[12px] text-[10px] text-main-white bg-custom-red font-semibold rounded-[50%]">
-                  {wishlistCount}
-                </span>
-              )}
-            </Link>
+          <NavLinks navLinks={navLinks} activePageName={activePageName} />
 
-            <Link
-              href="/cart"
-              className="relative flex items-center gap-[2px] xl:text-[12px] text-[11px] text-custom-gray-darker text-nowrap font-medium rounded-[50px] border border-transparent transition-color duration-200 hover:text-main-black max-md:hover:scale-[1.15]"
-            >
-              <span className="max-md:hidden">Cart</span>
-              <IoCartOutline className="h-[18px] w-[18px]" />
-              {cartCount != 0 && (
-                <span className="absolute flex justify-center items-center md:h-[18px] md:w-[18px] h-[15px] w-[15px] md:top-[-12px] top-[-10px] right-[-8px] md:text-[12px] text-[10px] text-main-white bg-custom-red font-semibold rounded-[50%]">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
-
-            {/* Login buttons */}
+          <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center xl:gap-6 md:gap-5 gap-4">
+            <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCount} />
+            <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCount} />
             <HeaderBtnCTA href="/register" buttonText="Sign Up" Icon={BsPersonPlus} isDarkBg={true} />
             <HeaderBtnCTA href="/login" buttonText="Login" Icon={FiLogIn} isDarkBg={false} />
           </div>
