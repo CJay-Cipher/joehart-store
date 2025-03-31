@@ -9,7 +9,7 @@ type ActionCounterProps = {
 const ActionCounter = ({ href, label, Icon, counter }: ActionCounterProps) => (
   <Link
     href={href}
-    className="relative flex items-center gap-[2px] xl:text-[12px] text-[11px] text-custom-gray-darker text-nowrap font-medium rounded-[50px] border border-transparent transition-color duration-200 hover:text-main-black md:hover:scale-[1.1] hover:scale-[1.15]"
+    className="relative flex items-center gap-[3px] xs:px-[10px] px-[7px] xs:py-[4px] py-[2px] xl:text-[12px] text-[11px] text-custom-gray-darker text-nowrap font-medium rounded-[50px] border border-main-white transition-color duration-200 hover:text-main-black hover:border-"
   >
     <span className="">{label}</span>
     <Icon className="h-[18px] w-[18px]" />

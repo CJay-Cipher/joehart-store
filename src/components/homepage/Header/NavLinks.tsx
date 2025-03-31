@@ -22,7 +22,7 @@ const NavLinks = ({ navLinks, activePageName }: NavLinksProps) => {
           href={link.href || "#"}
           className={`px-[14px] py-[5px] xl:text-[12px] lg:text-[10px] text-[14px] lg:rounded-[30px] rounded-r-[30px] lg:transition-color lg:duration-200 lg:text-main-text text-nowrap cursor-pointer group ${
             activePageName?.toUpperCase() === link.name.toUpperCase()
-              ? "text-main-black font-medium lg:bg-main-white bg-button-bg lg:border border-custom-slate-400"
+              ? "text-button-bg-hover lg:font-medium font-semibold lg:bg-main-white lg:border border-custom-slate-400"
               : "lg:font-semibold font-normal border-transparent lg:hover:text-main-white lg:hover:bg-button-bg-hover hover:text-main-white hover:bg-button-bg-hover active:bg-button-bg-hover"
           }`}
         >

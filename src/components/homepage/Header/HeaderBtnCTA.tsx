@@ -15,7 +15,7 @@ const HeaderBtnCTA = ({ href, buttonText, Icon, isDarkBg }: HeaderBtnCTAProps) =
         ${isDarkBg ? "text-main-white bg-button-bg" : "text-main-black bg-main-white"}
         md:px-[30px] md:py-[6px] px-[20px] py-[7px] text-nowrap lg:font-medium 
         rounded-[5px] transition-color duration-100 
-        hover:text-main-white hover:bg-button-bg-hover max-md:hover:scale-[1.15]`}
+        hover:text-main-white hover:bg-button-bg-hover lg:hover:scale-[1.15]`}
     >
       <span className="">{buttonText}</span>
       <Icon className="xl:h-[15px] xl:w-[15px] h-[14px] w-[14px]" />

@@ -86,7 +86,7 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
             <NavLinks navLinks={navLinks} activePageName={activePageName} />
           </div>
 
-          <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center gap-4">
+          <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center lg:gap-3 gap-2">
             <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCount} />
             <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCount} />
             <div className="max-lg:hidden flex items-center gap-2">

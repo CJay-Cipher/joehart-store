@@ -61,7 +61,7 @@ export default function Cart() {
 
   return (
     <div className="font-montserrat max-sm:bg-custom-gray-light">
-      <Header wishlistCount={0} cartCount={0} showHeader={true} activePageName="Home" />
+      <Header wishlistCount={0} cartCount={0} showHeader={true} />
       {/* <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} activePageName="Home" /> */}
       <UserCart />
       {/* <Products addToWishlist={addToWishlist} wishlistDecreament={wishlistDecrement} addToCart={addToCart} cartDecrement={cartDecrement} /> */}

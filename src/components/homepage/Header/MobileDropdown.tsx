@@ -16,7 +16,7 @@
 //   };
 //   return (
 //     <div
-//       className={`flex flex-col absolute z-20 bottom-full w-full transition-all duration-500 h-max min-h-[calc(100vh-60px)] pb-screen bg-white shadow-lg lg:hidden ${
+//       className={`flex flex-col absolute z-20 bottom-full w-full transition-all duration-500 h-max min-h-[calc(100vh-60px)] pb-[100svh] bg-white shadow-lg lg:hidden ${
 //         isMenuOpen
 //           ? "mobile-position-top"
 //           : "top-[calc(-100vh)] pointer-events-none opagcity-0"
