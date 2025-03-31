@@ -20,14 +20,15 @@ const NavLinks = ({ navLinks, activePageName }: NavLinksProps) => {
         <Link
           key={index}
           href={link.href || "#"}
-          className={`px-[14px] py-[5px] xl:text-[12px] lg:text-[10px] text-[14px] lg:rounded-[30px] rounded-r-[30px] border lg:transition-color lg:duration-200 lg:text-main-text text-main-white text-nowrap cursor-pointer group ${
+          className={`px-[14px] py-[5px] xl:text-[12px] lg:text-[10px] text-[14px] lg:rounded-[30px] rounded-r-[30px] lg:transition-color lg:duration-200 lg:text-main-text text-nowrap cursor-pointer group ${
             activePageName?.toUpperCase() === link.name.toUpperCase()
-              ? "font-bold bg-main-white border border-custom-slate-400"
-              : "font-semibold border-transparent lg:hover:text-main-white lg:hover:bg-button-bg-hover hover:text-main-white hover:bg-button-bg-hover"
+              ? "text-main-black font-medium lg:bg-main-white bg-custom-slate-500 lg:border border-y border-r border-custom-slate-400"
+              : "lg:font-semibold font-normal border-transparent lg:hover:text-main-white lg:hover:bg-button-bg-hover hover:text-main-white hover:bg-button-bg-hover active:bg-button-bg-hover"
           }`}
         >
           <div
-            className={`max-lg:py-1 max-lg:group-hover:translate-x-[10px] transition-transform duration-300 ease-in-out ${
+            className={`max-lg:py-1  transition-transform duration-300 ease-in-out
+              ${activePageName?.toUpperCase() === link.name.toUpperCase() ? "cursor-default" : "max-lg:group-hover:translate-x-[10px]"} ${
               link.hasIcon && "flex items-center lg:gap-[2px] gap-4"
             }`}
           >

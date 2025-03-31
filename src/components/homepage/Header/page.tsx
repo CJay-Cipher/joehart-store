@@ -89,8 +89,10 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
           <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center gap-4">
             <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCount} />
             <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCount} />
-            <HeaderBtnCTA href="/register" buttonText="Sign Up" Icon={BsPersonPlus} isDarkBg={true} />
-            <HeaderBtnCTA href="/login" buttonText="Login" Icon={FiLogIn} isDarkBg={false} />
+            <div className="max-lg:hidden flex items-center gap-2">
+              <HeaderBtnCTA href="/register" buttonText="Sign Up" Icon={BsPersonPlus} isDarkBg={true} />
+              <HeaderBtnCTA href="/login" buttonText="Login" Icon={FiLogIn} isDarkBg={false} />
+            </div>
           </div>
 
           <button onClick={toggleMenu} className={`z-100 lg:hidden rounded-md p-2 border-transparent active:border-white`}>
@@ -100,8 +102,8 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
               innerClassName={`h-[2px] ${isMenuOpen ? "bg-main-white" : "bg-custom-gray-darker"}`}
             />
           </button>
-          <div className="absolute">
-            <SideMenu isOpen={isMenuOpen} />
+          <div className="absolute lg:hidden">
+            <SideMenu isOpen={isMenuOpen} activePageName={activePageName} />
           </div>
         </nav>
       </div>
