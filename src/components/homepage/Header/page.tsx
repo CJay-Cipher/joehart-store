@@ -12,6 +12,7 @@ import { IoCartOutline } from "react-icons/io5";
 import { BsPersonPlus } from "react-icons/bs";
 import { FiLogIn } from "react-icons/fi";
 import ActionCounter from "./ActionCounter";
+import SideMenu from "./SideMenu";
 
 type HeaderProps = {
   wishlistCount?: number;
@@ -29,7 +30,7 @@ const navLinks = [
 ];
 
 const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }: HeaderProps) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
         // Arbitrary distance to start hiding
         if (window.scrollY < lastScrollY) {
           setIsHeaderVisible(true); // Scrolling up
-        } else if (!showHeader) {
+        } else if (!showHeader && !isMenuOpen) {
           setIsHeaderVisible(false); // Scrolling down
         }
       } else {
@@ -51,7 +52,7 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
 
     if (showHeader) {
       setIsHeaderVisible(true); // Show the header
-    } else if (window.scrollY > 100) {
+    } else if (window.scrollY > 100 && !isMenuOpen) {
       setIsHeaderVisible(false);
     }
 
@@ -59,10 +60,10 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [showHeader]);
+  }, [showHeader, isMenuOpen]);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -78,10 +79,12 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
             className="z-10 flex items-center gap-[5px] font-outfit xl:text-[18px] text-[16px] text-nowrap font-bold text-main-black hover:text-button-bg tracking-[0.9px] cursor-pointer"
           >
             <Image src={perfume} alt="Perfume" className="max-xs:hidden w-[26px] h-[26px]" />
-            JoeHart.
+            JoeHart
           </Link>
 
-          <NavLinks navLinks={navLinks} activePageName={activePageName} />
+          <div className="max-lg:hidden">
+            <NavLinks navLinks={navLinks} activePageName={activePageName} />
+          </div>
 
           <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center gap-4">
             <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCount} />
@@ -90,21 +93,15 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
             <HeaderBtnCTA href="/login" buttonText="Login" Icon={FiLogIn} isDarkBg={false} />
           </div>
 
-          <div className="block lg:hidden">
-            <button
-              onClick={toggleDropdown}
-              className={`xs:p-2 group cursor-pointer transition-all duration-200 border-[0.5px] border-transparent rounded-[5px] ${
-                isDropdownOpen
-                  ? "hover:shadow-xl hover:border-custom-gray md:hover:scale-[1.08] hover:scale-[1.15]-light focus:shadow-xl focus:border-custom-gray-light"
-                  : "hover:shadow-none hover:border-transparent focus:shadow-none focus:border-transparent"
-              }`}
-            >
-              <MenuIconOpenClose
-                isMenuOpen={isDropdownOpen}
-                boxClassName="md:h-[16px] md:w-[28px] sm:h-[15px] sm:w-[26px] h-[14px] w-[24px]"
-                innerClassName={`h-[2px] bg-main-text`}
-              />
-            </button>
+          <button onClick={toggleMenu} className={`z-100 lg:hidden rounded-md p-2 border-transparent active:border-white`}>
+            <MenuIconOpenClose
+              isMenuOpen={isMenuOpen}
+              boxClassName={`z-50 md:h-[15px] md:w-[26px] sm:h-[14px] sm:w-[24px] h-[12px] w-[22px]`}
+              innerClassName={`h-[2px] ${isMenuOpen ? "bg-main-white" : "bg-custom-gray-darker"}`}
+            />
+          </button>
+          <div className="absolute">
+            <SideMenu isOpen={isMenuOpen} />
           </div>
         </nav>
       </div>
