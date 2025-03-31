@@ -18,9 +18,9 @@ const navLinks = [
 
 const SideMenu = ({ isOpen, activePageName }: SideMenuProps) => {
   return (
-    <div className={`z-10 ${isOpen && "fixed top-0 left-0 w-full min-h-[100svh] bg-[#010307bd]"}`}>
+    <div className={`z-10 ${isOpen && "fixed inset-0 top-0 left-0 w-full min-h-screen bg-[#010307bd]"}`}>
       <div
-        className={`z-100 fixed top-0 right-0 flex flex-col justify-between h-full min-h-[100svh] w-max pt-[70px] pb-[20px] sm:pr-[140px] xs:pr-[120px] pr-[100px] text-main-white bg-main-black sm:rounded-l-[30px] rounded-l-[20px] transition-transform duration-200 border border-custom-gray-darker shadow-lg shadow-main-black overflow-y-auto ${
+        className={`z-100 fixed top-0 right-0 flex flex-col justify-between h-full min-h-screen w-max pt-[70px] pb-[20px] sm:pr-[140px] xs:pr-[120px] pr-[100px] text-main-white bg-main-black sm:rounded-l-[30px] rounded-l-[20px] transition-transform duration-200 border border-custom-gray-darker shadow-lg shadow-main-black overflow-y-auto ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
