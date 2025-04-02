@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
 type Product = {
-  id: number;
+  id: string;
   name: string;
-  brand: string;
-  description: string;
+  price: string;
+  oldPrice?: string;
+  imageUrl: string;
+  description?: string;
+  rating?: number;
 };
 
 type ProductSearchProps = {
   products: Product[];
 };
 
-const ProductSearch: React.FC<ProductSearchProps> = ({ products }) => {
+const ProductSearch = ({ products }: ProductSearchProps) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
   const [isFocused, setIsFocused] = useState<boolean>(false);
@@ -43,8 +46,8 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ products }) => {
           {filteredProducts.map((product) => (
             <li key={product.id} className="py-2 border-b border-gray-200">
               <h3 className="md:text-[14px] text-[12px] font-semibold">{product.name}</h3>
-              <p className="md:text-[12px] text-[10px] text-gray-600">{product.brand}</p>
-              <p className="md:text-[10px] text-[8px] text-gray-500">{product.description}</p>
+              {/* <p className="md:text-[12px] text-[10px] text-gray-600">₦ {product.price}</p> */}
+              <p className="md:text-[12px] text-[10px] text-custom-slate-500">{product.description}</p>
             </li>
           ))}
         </ul>

@@ -3,7 +3,7 @@ import { create } from "zustand";
 import productsData from "./products.json"; // Import the JSON data
 
 type Product = {
-  id: number;
+  id: string;
   name: string;
   price: string;
   oldPrice: string;

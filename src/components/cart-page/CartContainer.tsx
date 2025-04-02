@@ -1,26 +1,64 @@
-// src/components/Cart.tsx
-import React from "react";
-import useCartStore from "@/stores/useCartStore";
+import React, { useEffect, useState } from "react";
+import { getItem, setItem } from "@/utils/localStorage";
 
-const CartContainer = () => {
-  const cart = useCartStore((state) => state.cart);
-  const clearCart = useCartStore((state) => state.clearCart);
+type CartContainerProps = {
+  removeFromCart: (productData: { [key: string]: Product }) => void;
+};
+type Product = {
+  id: string;
+  name: string;
+  price: string;
+  oldPrice?: string;
+  imageUrl: string;
+  description?: string;
+  rating?: number;
+};
+
+const CartContainer = ({ removeFromCart }: CartContainerProps) => {
+  const [cartData, setCartData] = useState<{ [key: string]: Product }>(() => {
+    const cartItems = getItem("cartData");
+    return cartItems || {};
+  });
+
+  const handleRemoveItem = (id: string) => {
+    setCartData((prevData) => {
+      const newCart = { ...prevData };
+      delete newCart[id]; // Remove the item by ID
+      return newCart; // Return the updated cart
+    });
+  };
+
+  const handleClearCart = () => {
+    setCartData({}); // Clear the cart
+  };
+
+  useEffect(() => {
+    setItem("cartData", cartData);
+    removeFromCart(cartData);
+    console.log("Cart:", cartData);
+  }, [cartData, removeFromCart]);
 
   return (
-    <div className="p-4 min-h-full border-y">
+    <div className="p-4 min-h-full">
       <h2 className="xl:text-[24px] md:text-[20px] text-[18px] text-center mb-4">Your Cart</h2>
-      {cart.length === 0 ? (
+      {Object.keys(cartData).length === 0 ? (
         <p className="xl:text-[18px] md:text-[16px] text-[14px] text-center">Your cart is empty.</p>
       ) : (
         <div>
-          {cart.map((item) => (
-            <div key={item.id} className="border-b py-2">
+          {Object.values(cartData).map((item) => (
+            <div key={item.id} className="border-b border-custom-slate-400 py-2">
               <h3>{item.name}</h3>
-              <p>{item.price}</p>
+              <p>Price: ₦ {item.price}</p>
               <p>{item.description}</p>
+              <button
+                onClick={() => handleRemoveItem(item.id)} // Pass the item ID to the remove function
+                className="mt-4 bg-custom-red text-main-white rounded px-4 py-2"
+              >
+                Remove item
+              </button>
             </div>
           ))}
-          <button onClick={clearCart} className="mt-4 bg-red-500 text-white rounded px-4 py-2">
+          <button onClick={handleClearCart} className="mt-4 bg-custom-blood-red text-main-white rounded px-4 py-2">
             Clear Cart
           </button>
         </div>

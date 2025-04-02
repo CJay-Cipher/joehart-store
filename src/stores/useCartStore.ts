@@ -2,7 +2,7 @@
 import { create } from "zustand";
 
 type Product = {
-  id: number;
+  id: string;
   name: string;
   price: string;
   oldPrice?: string;
@@ -14,7 +14,7 @@ type Product = {
 type CartState = {
   cart: Product[];
   addToCartStore: (product: Product) => void;
-  removeFromCart: (productId: number) => void;
+  removeFromCart: (productid: string) => void;
   clearCart: () => void;
 };
 

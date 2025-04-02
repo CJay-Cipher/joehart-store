@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useStore from "@/stores/useStore";
-import useCartStore from "@/stores/useCartStore";
+// import useCartStore from "@/stores/useCartStore";
 import Image from "next/image";
 import ShowingItems from "./ShowingItems";
 import SearchSortBar from "./SearchSortBar";
 import { IoMdHeart } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { FaEye } from "react-icons/fa6";
+import { getItem, setItem } from "@/utils/localStorage";
 // import ViewType from "./ViewType";
 
 type ProductsProps = {
-  addToWishlist: (productData: Product) => void;
-  wishlistDecreament: (productData: Product) => void;
-  addToCart: (productData: Product) => void;
-  cartDecrement?: (productData: Product) => void;
+  // addToWishlist?: (productData: Product) => void;
+  // wishlistDecreament?: (productData: Product) => void;
+  addToCart: (productData: { [key: string]: Product }) => void;
+  // cartDecrement?: (productData: Product) => void;
 };
 
 type Product = {
-  id: number;
+  id: string;
   name: string;
   price: string;
   oldPrice?: string;
@@ -27,17 +28,27 @@ type Product = {
 };
 
 // const Products = ({ addToWishlist, wishlistDecreament, addToCart, cartDecrement }: ProductsProps) => {
-const Products = ({ addToWishlist, addToCart }: ProductsProps) => {
+const Products = ({ addToCart }: ProductsProps) => {
+  const [cartData, setCartData] = useState<{ [key: string]: Product }>(() => {
+    const cartItems = getItem("cartData");
+    return cartItems || {};
+  });
   const { products } = useStore(); // Get products from the store
-  const addToCartStore = useCartStore((state) => state.addToCartStore);
+  // const addToCartStore = useCartStore((state) => state.addToCartStore);
   const handleAddToCart = (productData: Product) => {
-    addToCart(productData);
-    addToCartStore(productData);
-    // You can add any additional actions here as needed
+    // addToCartStore(productData);
+
+    // Update the state with the new product
+    setCartData((prevProducts) => ({
+      ...prevProducts,
+      [productData.id]: productData,
+    }));
   };
-  const handleAddToWishlist = (productData: Product) => {
-    addToWishlist(productData);
-  };
+  useEffect(() => {
+    setItem("cartData", cartData);
+    addToCart(cartData); // call addToCart function
+    // console.log("Cart:", cartData);
+  }, [cartData, addToCart]);
 
   return (
     <div className="mx-auto w-[100%] max-w-[1480px] mt-4 lg:px-8 md:px-6 px-4">
@@ -109,7 +120,7 @@ const Products = ({ addToWishlist, addToCart }: ProductsProps) => {
               </div>
             </div>
             <button
-              onClick={() => handleAddToWishlist(product)}
+              // onClick={() => handleAddToWishlist(product)}
               className="absolute 3xs:max-xs:left-2 top-2 right-2 flex items-center justify-center md:gap-2 gap-1 lg:text-[14px] text-[12px] text-custom-slate-400 bg-main-white border border-custom-slate-400 xl:h-8 xl:w-8 h-7 w-7 rounded-[50%] hover:text-custom-red hover:border-custom-red"
             >
               <span className="hidden">Wishlist</span>

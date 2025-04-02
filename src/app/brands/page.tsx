@@ -15,9 +15,9 @@ type Product = {
   rating?: number;
 };
 
-const pageName = "Best Sellers";
+const pageName = "Brands";
 
-export default function BestSeller() {
+export default function Brands() {
   // const [wishlistCount, setWishlistCount] = useState<number>(0);
   const [cartCount, setCartCount] = useState<number>(0);
   // const timeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to track timeout

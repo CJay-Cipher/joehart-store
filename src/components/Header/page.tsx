@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import MenuIconOpenClose from "./MenuIconOpenClose";
 import HeaderBtnCTA from "./HeaderBtnCTA";
-import perfume from "../../../images/perfume.png";
+import perfume from "../../images/perfume.png";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { BsPersonPlus } from "react-icons/bs";
@@ -15,11 +15,20 @@ import ActionCounter from "./ActionCounter";
 import SideMenu from "./SideMenu";
 
 type HeaderProps = {
-  wishlistCount?: number;
-  cartCount?: number;
-  showHeader?: boolean;
   activePageName?: string;
+  wishlistCounter?: number;
+  cartCounter?: number;
 };
+
+// type Product = {
+//   id: string;
+//   name: string;
+//   price: string;
+//   oldPrice?: string;
+//   imageUrl: string;
+//   description?: string;
+//   rating?: number;
+// };
 
 const navLinks = [
   { name: "HOME", href: "/" },
@@ -29,9 +38,34 @@ const navLinks = [
   { name: "BRANDS", href: "/brands" },
 ];
 
-const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }: HeaderProps) => {
+const Header = ({ activePageName, wishlistCounter, cartCounter }: HeaderProps) => {
+  // const [wishlistCount, setWishlistCount] = useState<number>(0);
+  // const [cartCount, setCartCount] = useState<number>(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState<boolean>();
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to track timeout
+
+  useEffect(() => {
+    setShowHeader(true);
+
+    // Clear existing timeout before setting a new one
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Hide the header after 5 seconds
+    timeoutRef.current = setTimeout(() => {
+      setShowHeader(false);
+    }, 5000); // 5000 milliseconds = 5 seconds
+
+    // Clean up the timeout when the component unmounts
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [cartCounter]);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -62,6 +96,24 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
     };
   }, [showHeader, isMenuOpen]);
 
+  const handleMouseEnter = () => {
+    setIsHeaderVisible(true);
+    // Clear timeout when mouse enters
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    // Set a timeout to hide the header after 5 seconds when mouse leaves
+    timeoutRef.current = setTimeout(() => {
+      if (window.scrollY > 100 && !isMenuOpen) {
+        setIsHeaderVisible(false);
+      }
+    }, 5000);
+  };
+
+  // Toggle Side Menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -69,6 +121,8 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
   return (
     <>
       <div
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className={`fixed z-100 top-0 w-full lg:h-[80px] md:h-[60px] h-[55px] bg-header-bg backdrop-blur-md flex items-center justify-center transition-transform duration-300 ${
           isHeaderVisible ? "translate-y-0" : "-translate-y-full"
         }`}
@@ -87,8 +141,8 @@ const Header = ({ wishlistCount = 0, cartCount = 0, showHeader, activePageName }
           </div>
 
           <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center lg:gap-3 gap-2">
-            <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCount} />
-            <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCount} />
+            <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCounter || 0} />
+            <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCounter || 0} />
             <div className="max-lg:hidden flex items-center gap-2">
               <HeaderBtnCTA href="/register" buttonText="Sign Up" Icon={BsPersonPlus} isDarkBg={true} />
               <HeaderBtnCTA href="/login" buttonText="Login" Icon={FiLogIn} isDarkBg={false} />

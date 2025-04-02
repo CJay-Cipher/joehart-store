@@ -6,7 +6,7 @@ type ActionCounterProps = {
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   counter: number;
 };
-const ActionCounter = ({ href, label, Icon, counter }: ActionCounterProps) => (
+const ActionCounter = ({ href, label, Icon, counter = 0 }: ActionCounterProps) => (
   <Link
     href={href}
     className="relative flex items-center gap-[3px] xs:px-[10px] xs:py-[4px] max-xs:p-[6px] xl:text-[12px] text-[11px] text-main-black text-nowrap font-medium border border-custom-slate-400 lg:rounded-[30px] xs:rounded-[20px] rounded-[50%] bg-main-white transition-color duration-200 hover:text-main-white hover:bg-main-black"

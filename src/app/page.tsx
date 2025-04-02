@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import Header from "@/components/homepage/Header/page";
+import React, { useState } from "react";
+import Header from "@/components/Header/page";
 import Hero from "@/components/homepage/Hero/page";
 import Products from "@/components/products/page";
 import ExploreCarousel from "@/components/homepage/explore-section/page";
-import PagePath from "@/components/homepage/PagePath";
+// import PagePath from "@/components/homepage/PagePath";
 
 type Product = {
-  id: number;
+  id: string;
   name: string;
   price: string;
   oldPrice?: string;
@@ -17,57 +17,25 @@ type Product = {
   rating?: number;
 };
 
+const pageName = "Home";
+
 export default function Home() {
-  const [wishlistCount, setWishlistCount] = useState<number>(0);
+  // const [wishlistCount, setWishlistCount] = useState<number>(0);
   const [cartCount, setCartCount] = useState<number>(0);
-  const [showHeader, setShowHeader] = useState<boolean>(true);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to track timeout
 
-  const addToWishlist = () => {
-    setWishlistCount((prevCount) => prevCount + 1);
+  const addToCart = (cartData: { [key: string]: Product }) => {
+    setCartCount(Object.keys(cartData).length);
+    console.log(cartData);
+    // console.log("product data:", productData);
   };
-
-  const wishlistDecrement = () => {
-    setWishlistCount((prevCount) => prevCount - 1);
-  };
-
-  const addToCart = (productData: Product) => {
-    setCartCount((prevCount) => prevCount + 1);
-    console.log("product data:", productData);
-  };
-
-  const cartDecrement = () => {
-    setCartCount((prevCount) => prevCount - 1);
-  };
-
-  useEffect(() => {
-    setShowHeader(true);
-
-    // Clear existing timeout before setting a new one
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-
-    // Hide the header after 5 seconds
-    timeoutRef.current = setTimeout(() => {
-      setShowHeader(false);
-    }, 5000); // 5000 milliseconds = 5 seconds
-
-    // Clean up the timeout when the component unmounts
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, [wishlistCount, cartCount]);
 
   return (
     <div className="font-montserrat max-sm:bg-custom-gray-light">
-      <Header wishlistCount={wishlistCount} cartCount={cartCount} showHeader={showHeader} activePageName="Home" />
+      <Header cartCounter={cartCount} activePageName={pageName} />
       <Hero />
       <ExploreCarousel />
-      <PagePath />
-      <Products addToWishlist={addToWishlist} wishlistDecreament={wishlistDecrement} addToCart={addToCart} cartDecrement={cartDecrement} />
+      {/* <PagePath pageName={pageName} /> */}
+      <Products addToCart={addToCart} />
     </div>
   );
 }
