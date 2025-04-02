@@ -13,7 +13,7 @@ const HeaderBtnCTA = ({ href, buttonText, Icon, isDarkBg }: HeaderBtnCTAProps) =
       href={href}
       className={`flex items-center md:gap-3 gap-2 xl:text-[12px] lg:text-[11px] text-[14px] border border-button-bg hover:border-transparent
         ${isDarkBg ? "text-main-white bg-button-bg" : "text-main-black bg-main-white"}
-        md:px-[30px] md:py-[6px] px-[20px] py-[7px] text-nowrap lg:font-medium 
+        xl:px-[20px] xl:py-[6px] md:px-[15px] md:py-[5px] px-[12px] py-[4px] text-nowrap lg:font-medium 
         rounded-[5px] transition-color duration-100 
         hover:text-main-white hover:bg-button-bg-hover`}
     >
