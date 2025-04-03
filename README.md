@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JoeHart Empire Fragrance
 
-## Getting Started
+![JoeHart](public/mobile-responsiveness.png)
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+JoeHart Empire Fragrance is a perfume e-commerce platform designed to offer exquisite fragrances for both men and women. This project is built using Next.js, Tailwind CSS, and TypeScript, providing an elegant shopping experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can view the live version of the site at [JoeHart Store](https://joehart-store.vercel.app).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **User-Friendly Navigation**: Easily browse through categories, best sellers, and deals.
+- **Product Listings**: View detailed product information, including prices and descriptions.
+- **Wishlist and Cart Functionality**: Manage your favorite items and shopping cart seamlessly.
+- **Dynamic Filtering**: Sort and filter products based on various criteria.
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js**: A React framework for server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **TypeScript**: A statically typed programming language for enhancing JavaScript.
+- **React**: A JavaScript library for building user interfaces.
+- **Zustand**: A small, fast, and scalable state management solution.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+To set up the project locally, follow these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone <repository-url>
+   cd frontend
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables (if necessary).
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Open your browser and navigate to `http://localhost:3002`.
+
+## Scripts
+
+- **dev**: Starts the development server.
+- **build**: Builds the application for production.
+- **start**: Starts the production server.
+- **lint**: Runs ESLint to check for code quality.
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Thanks to the creators of Next.js, Tailwind CSS, and TypeScript for their incredible frameworks and tools that made this project possible.
+
+For any questions or feedback, feel free to reach out!
