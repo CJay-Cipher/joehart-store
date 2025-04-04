@@ -29,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} ${outfit.variable} ${alumniSans.variable}`}>{children}</body>
+      <body id="main-body" className={`${montserrat.variable} ${outfit.variable} ${alumniSans.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

@@ -74,7 +74,7 @@
 
 * {
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 body {
   font-family: Verdana, Helvetica, sans-serif;

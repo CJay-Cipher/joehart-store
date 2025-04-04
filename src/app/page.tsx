@@ -25,12 +25,12 @@ export default function Home() {
 
   const addToCart = (cartData: { [key: string]: Product }) => {
     setCartCount(Object.keys(cartData).length);
-    console.log(cartData);
+    // console.log(cartData);
     // console.log("product data:", productData);
   };
 
   return (
-    <div className="font-montserrat max-sm:bg-custom-gray-light">
+    <div className="font-montserrat max-sm:bg-custom-gray-light overflow-y-visible">
       <Header cartCounter={cartCount} activePageName={pageName} />
       <Hero />
       <ExploreCarousel />
