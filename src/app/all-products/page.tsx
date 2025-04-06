@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { API_URLS } from "@/config/apiConfig";
+import Image from "next/image";
 
 type Product = {
   _id: string;
@@ -96,7 +97,7 @@ const AllProducts = () => {
       <div className="grid grid-cols-1 gap-4">
         {products.map((product) => (
           <div key={product._id} className="border p-4 rounded shadow">
-            <img src={product.thumbnail.url} alt={product.title} className="mb-2" />
+            <Image width={100} height={100} src={product.thumbnail.url} alt={product.title} className="mb-2" />
             <h3 className="text-lg font-semibold">{product.title}</h3>
             <p className="text-gray-700">{product.description}</p>
             <p className="text-green-600">Current Price: ₦{product.currentPrice}</p>

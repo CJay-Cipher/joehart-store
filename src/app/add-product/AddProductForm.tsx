@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { API_URLS } from "@/config/apiConfig";
 
 const AddProductForm = () => {
@@ -19,8 +19,13 @@ const AddProductForm = () => {
   const [isFeatured, setIsFeatured] = useState<boolean>(false);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [accessToken, setAccessToken] = useState<string | null>(null);
 
-  const accessToken = localStorage.getItem("accessToken");
+  useEffect(() => {
+    // Access token retrieval in useEffect to ensure it's on the client
+    const token = window.localStorage.getItem("accessToken");
+    setAccessToken(token);
+  }, []);
 
   const refreshToken = async () => {
     try {
@@ -37,7 +42,8 @@ const AddProductForm = () => {
       }
 
       const data = await response.json();
-      localStorage.setItem("accessToken", data.data.accessToken);
+      window.localStorage.setItem("accessToken", data.data.accessToken);
+      setAccessToken(data.data.accessToken); // Update state with new token
       console.log("Token refreshed successfully");
     } catch (error) {
       console.error("Token refresh failed:", error);
@@ -75,16 +81,11 @@ const AddProductForm = () => {
 
       if (!response.ok) {
         if (response.status === 401) {
-          // Attempt to refresh the token
-
           const data = await response.json();
-          if (data.error.details.accessTokenStatus == "expired") {
-            // console.log("Expired ...");
-            // update access token here if its expired
+          if (data.error.details.accessTokenStatus === "expired") {
+            await refreshToken();
+            return handleSubmit(e); // Retry after refreshing token
           }
-          await refreshToken();
-          // Retry the original request after refreshing the token
-          return handleSubmit(e);
         }
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
