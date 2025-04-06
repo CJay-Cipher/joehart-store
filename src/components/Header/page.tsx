@@ -143,7 +143,7 @@ const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounte
 
           <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center lg:gap-3 gap-2">
             {!hideActionCounter && (
-              <div className="max-lg:hidden flex items-center gap-2">
+              <div className="flex items-center gap-2">
                 <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCounter || 0} />
                 <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCounter || 0} />
               </div>
