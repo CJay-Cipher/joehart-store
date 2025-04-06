@@ -18,6 +18,7 @@ type HeaderProps = {
   activePageName?: string;
   wishlistCounter?: number;
   cartCounter?: number;
+  hideActionCounter?: boolean;
 };
 
 // type Product = {
@@ -38,7 +39,7 @@ const navLinks = [
   { name: "BRANDS", href: "/brands" },
 ];
 
-const Header = ({ activePageName, wishlistCounter, cartCounter }: HeaderProps) => {
+const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounter }: HeaderProps) => {
   // const [wishlistCount, setWishlistCount] = useState<number>(0);
   // const [cartCount, setCartCount] = useState<number>(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -141,8 +142,12 @@ const Header = ({ activePageName, wishlistCounter, cartCounter }: HeaderProps) =
           </div>
 
           <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center lg:gap-3 gap-2">
-            <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCounter || 0} />
-            <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCounter || 0} />
+            {!hideActionCounter && (
+              <div className="max-lg:hidden flex items-center gap-2">
+                <ActionCounter href="/wishlist" label="Wishlist" Icon={IoMdHeartEmpty} counter={wishlistCounter || 0} />
+                <ActionCounter href="/cart" label="Cart" Icon={IoCartOutline} counter={cartCounter || 0} />
+              </div>
+            )}
             <div className="max-lg:hidden flex items-center gap-2">
               <HeaderBtnCTA href="/register" buttonText="Sign Up" Icon={BsPersonPlus} isDarkBg={true} />
               <HeaderBtnCTA href="/login" buttonText="Login" Icon={FiLogIn} isDarkBg={false} />
