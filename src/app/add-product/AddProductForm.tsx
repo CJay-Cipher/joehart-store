@@ -76,6 +76,7 @@ const AddProductForm = () => {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
+        credentials: "include",
         body: formData,
       });
 

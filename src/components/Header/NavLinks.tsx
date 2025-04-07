@@ -28,12 +28,12 @@ const NavLinks = ({ navLinks, activePageName }: NavLinksProps) => {
         >
           <div
             className={`max-lg:py-1  transition-transform duration-300 ease-in-out
-              ${activePageName?.toUpperCase() === link.name.toUpperCase() ? "cursor-default" : "max-lg:group-hover:translate-x-[10px]"} ${
+              ${activePageName?.toUpperCase() === link.name.toUpperCase() ? "cursor-default" : `${!link.hasIcon && "max-lg:group-hover:translate-x-[10px]"}`} ${
               link.hasIcon && "flex items-center lg:gap-[2px] gap-4"
             }`}
           >
             {link.name}
-            {link.hasIcon && <IoChevronDownOutline className="h-[16px] w-[16px]" />}
+            {link.hasIcon && <IoChevronDownOutline className="h-[16px] w-[16px] group-hover:animate-bounce" />}
           </div>
         </Link>
       ))}

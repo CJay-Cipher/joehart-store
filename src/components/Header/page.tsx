@@ -47,6 +47,10 @@ const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounte
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to track timeout
 
+  const handleOutsideMenuClick = (value: boolean) => {
+    setIsMenuOpen(value);
+  };
+
   useEffect(() => {
     setShowHeader(true);
 
@@ -158,11 +162,11 @@ const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounte
             <MenuIconOpenClose
               isMenuOpen={isMenuOpen}
               boxClassName={`z-50 md:h-[15px] md:w-[26px] sm:h-[14px] sm:w-[24px] h-[12px] w-[22px]`}
-              innerClassName={`h-[2px] ${isMenuOpen ? "bg-main-white" : "bg-custom-gray-darker"}`}
+              innerClassName={`h-[2px] ${isMenuOpen ? "bg-main-white" : "bg-main-black"}`}
             />
           </button>
           <div className="absolute lg:hidden">
-            <SideMenu isOpen={isMenuOpen} activePageName={activePageName} />
+            <SideMenu isOpen={isMenuOpen} activePageName={activePageName} handleOutsideMenuClick={handleOutsideMenuClick} />
           </div>
         </nav>
       </div>
