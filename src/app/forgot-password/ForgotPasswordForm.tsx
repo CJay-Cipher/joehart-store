@@ -22,7 +22,7 @@ const ForgotPasswordForm = () => {
           <div className="flex items-center w-full md:gap-6 gap-4">
             <Link
               href="/login"
-              className="flex justify-center items-center xl:max-w-[380px] md:max-w-[340px] xs:max-w-[320px] w-full xl:h-[45px] md:h-[40px] 2xs:h-[38px] h-[37px] md:mt-10 mt-8 lg:text-[18px] md:text-[16px] text-[14px] text-main-black font-semibold bg-main-white border border-main-black hover:text-main-white hover:bg-main-black hover:border-transparent rounded-[5px] hover:shadow-md"
+              className="flex justify-center items-center xl:max-w-[380px] md:max-w-[340px] xs:max-w-[320px] w-full xl:h-[45px] md:h-[40px] 2xs:h-[38px] h-[37px] md:mt-10 mt-8 lg:text-[18px] md:text-[16px] text-[14px] text-main-black font-semibold bg-main-white border border-custom-slate-500 hover:text-main-white hover:bg-main-black hover:border-transparent rounded-[5px] hover:shadow-md"
             >
               Cancel
             </Link>

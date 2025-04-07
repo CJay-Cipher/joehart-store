@@ -21,7 +21,7 @@ const SideMenu = ({ isOpen, activePageName, handleOutsideMenuClick }: SideMenuPr
   const sideMenuRef = useRef<HTMLDivElement | null>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (sideMenuRef.current && !sideMenuRef.current.contains(event.target as Node)) {
+    if (isOpen && sideMenuRef.current && !sideMenuRef.current.contains(event.target as Node)) {
       handleOutsideMenuClick(false); // Close child if clicked outside
     }
   };

@@ -10,7 +10,7 @@ const RegisterPage = () => {
   return (
     <div className="font-montserrat h-[100svh] flex justify-center items-center">
       <div className="h-[100svh] max-h-[1500px] w-full max-page-width flex mx-auto lg:pt-[80px] md:pt-[60px] pt-[55px] shadow-2xl">
-        <Header hideActionCounter={true} />
+        <Header hideActionCounter={true} bgColor="bg-linear-to-r from-[#C4A5D9] to-main-white" />
         <div className="relative h-full max-md:hidden w-[40%] overflow-hidden">
           <Image quality={100} src={signUpImage} alt="side image" className="w-full h-full object-center object-cover" />
           <AuthPageContent headerText="Join Us Today to Discover the Finest Deals on Premium Fragrances!" subText="Discover The Best Deals on top Fragrances" />

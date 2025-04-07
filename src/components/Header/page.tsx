@@ -19,6 +19,7 @@ type HeaderProps = {
   wishlistCounter?: number;
   cartCounter?: number;
   hideActionCounter?: boolean;
+  bgColor?: string;
 };
 
 // type Product = {
@@ -39,16 +40,18 @@ const navLinks = [
   { name: "BRANDS", href: "/brands" },
 ];
 
-const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounter }: HeaderProps) => {
+const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounter, bgColor }: HeaderProps) => {
   // const [wishlistCount, setWishlistCount] = useState<number>(0);
   // const [cartCount, setCartCount] = useState<number>(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState<boolean>();
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isMenuOutsideClick, setIsMenuOutsideClick] = useState<boolean>(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null); // Ref to track timeout
 
   const handleOutsideMenuClick = (value: boolean) => {
     setIsMenuOpen(value);
+    setIsMenuOutsideClick(true);
   };
 
   useEffect(() => {
@@ -118,9 +121,19 @@ const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounte
     }, 5000);
   };
 
+  // reset isMenuOutsideClick after a delay
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsMenuOutsideClick(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [isMenuOutsideClick]);
+
   // Toggle Side Menu
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOutsideClick) {
+      setIsMenuOpen(!isMenuOpen);
+    }
   };
 
   return (
@@ -128,9 +141,9 @@ const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounte
       <div
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`fixed z-100 top-0 w-full lg:h-[80px] md:h-[60px] h-[55px] bg-header-bg backdrop-blur-md flex items-center justify-center transition-transform duration-300 ${
-          isHeaderVisible ? "translate-y-0" : "-translate-y-full"
-        }`}
+        className={`fixed z-100 top-0 w-full lg:h-[80px] md:h-[60px] h-[55px] backdrop-blur-md flex items-center justify-center transition-transform duration-300 ${
+          !bgColor ? "bg-header-bg" : bgColor
+        } ${isHeaderVisible ? "translate-y-0" : "-translate-y-full"}`}
       >
         <nav className="font-montserrat relative flex items-center justify-between h-full w-full max-w-[1480px] mx-auto lg:px-8 md:px-6 px-4 text-[12px]">
           <Link
