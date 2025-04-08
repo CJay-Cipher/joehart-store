@@ -81,7 +81,7 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
           {Object.values(cartData).map((item) => (
             <div
               key={item.id}
-              className="flex items-center md:gap-6 gap-4 border-b border-custom-slate-400 md:px-4 2xs:px-3 px-1 py-2 2xs:shadow-[0_4px_10px_#eff2f7] 2xs:rounded-bl-[15px]"
+              className="flex items-center md:gap-6 gap-4 border-b border-custom-slate-400 md:px-4 2xs:px-3 px-1 py-2 2xs:shadow-[0_4px_10px_#eff2f7] 2xs:rounded-b-[10px]"
             >
               <div className="lg:min-w-[150px] sm:min-w-[130px] min-w-[110px] ">
                 <Image
