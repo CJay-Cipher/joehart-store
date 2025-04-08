@@ -30,7 +30,7 @@ export default function Cart() {
   };
 
   return (
-    <div className="font-montserrat max-sm:bg-custom-gray-light">
+    <div className="font-montserrat">
       <Header cartCounter={cartCount} />
       <CartContainer removeFromCart={removeFromCart} />
     </div>
