@@ -13,6 +13,7 @@ type Product = {
   imageUrl: string;
   description?: string;
   rating?: number;
+  quantity?: number;
 };
 
 export default function Cart() {
@@ -26,7 +27,7 @@ export default function Cart() {
 
   const removeFromCart = (cartData: { [key: string]: Product }) => {
     setCartCount(Object.keys(cartData).length);
-    console.log("Updated Cart Data:", cartData);
+    // console.log("Updated Cart Data:", cartData);
   };
 
   return (

@@ -7,6 +7,7 @@ import RemoveItemModal from "../modal/RemoveItemModal";
 type CartContainerProps = {
   removeFromCart: (productData: { [key: string]: Product }) => void;
 };
+
 type Product = {
   id: string;
   name: string;
@@ -15,11 +16,12 @@ type Product = {
   imageUrl: string;
   description?: string;
   rating?: number;
+  quantity?: number;
 };
 
 const CartContainer = ({ removeFromCart }: CartContainerProps) => {
-  const [openClearCartModal, setOpenClearCartModal] = useState<boolean>();
-  const [openRemoveItemModal, setRemoveItemModal] = useState<boolean>();
+  const [clearCartModal, setClearCartModal] = useState<boolean>(false);
+  const [removeItemModal, setRemoveItemModal] = useState<boolean>(false);
   const [cartData, setCartData] = useState<{ [key: string]: Product }>(() => {
     const cartItems = getItem("cartData");
     return cartItems || {};
@@ -36,21 +38,35 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
 
   const handleClearCart = () => {
     setCartData({}); // Clear the cart
-    setOpenClearCartModal(false);
+    setClearCartModal(false);
   };
 
   const cancelClearCart = () => {
-    setOpenClearCartModal(false);
+    setClearCartModal(false);
   };
 
   const cancelRemoveItem = () => {
     setRemoveItemModal(false);
   };
 
+  const updateItemQuantity = (id: string, newQuantity: number) => {
+    if (newQuantity <= 0) {
+      setRemoveItemModal(true);
+      return;
+    }
+
+    setCartData((prevData) => ({
+      ...prevData,
+      [id]: {
+        ...prevData[id],
+        quantity: newQuantity,
+      },
+    }));
+  };
+
   useEffect(() => {
     setItem("cartData", cartData);
     removeFromCart(cartData);
-    console.log("Cart:", cartData);
   }, [cartData, removeFromCart]);
 
   return (
@@ -63,11 +79,12 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
       ) : (
         <div className="md:mt-8 mt-6 flex flex-col md:gap-6 gap-4">
           {Object.values(cartData).map((item) => (
-            <div key={item.id} className="flex items-center md:gap-6 gap-4 border-b border-custom-slate-400 px-2 pb-2">
-              <div // image div
-                className=""
-              >
-                <Image // image
+            <div
+              key={item.id}
+              className="flex items-center md:gap-6 gap-4 border-b border-custom-slate-400 md:px-4 2xs:px-3 px-1 py-2 2xs:shadow-[0_4px_10px_#eff2f7] 2xs:rounded-bl-[15px]"
+            >
+              <div className="lg:min-w-[150px] sm:min-w-[130px] min-w-[110px] ">
+                <Image
                   width={100}
                   height={100}
                   src={item.imageUrl}
@@ -76,18 +93,24 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
                 />
               </div>
               <div className="flex flex-col h-full w-full lg:gap-5 gap-3">
-                <div>
-                  <h3 className="text-button-bg font-bold lg:text-[16px] text-[14px] max-3xs:truncate">{item.name}</h3>
-                  <p className="text-custom-gray lg:text-[12px] text-[10px] xs:truncate max-3xs:truncate">{item.description}</p>
-                  <p className="mt-2 font-bold lg:text-[20px] sm:text-[18px] text-[16px] mr-4">₦ {Number(item.price).toLocaleString()}</p>
+                <div className="sm:w-[400px] xs:w-[300px] 2xs:w-[200px] w-[130px]">
+                  <h3 className="text-button-bg font-bold lg:text-[16px] text-[14px]">{item.name}</h3>
+                  <p className="text-custom-gray lg:text-[12px] text-[10px] truncate">{item.description}</p>
+                  <p className="mt-2 font-bold lg:text-[20px] sm:text-[18px] text-[16px] mr-4">₦ {(Number(item.price) * (item.quantity || 0)).toLocaleString()}</p>
                 </div>
-                <div className="flex items-center justify-between flex-wrap sm:gap-4 gap-2">
-                  <div className="flex items-center h-max lg:gap-4 sm:gap-3 gap-2 border border-custom-slate-400 rounded-[15px] overflow-hidden">
-                    <button className="flex justify-center items-center h-[24px] sm:w-[35px] w-[28px] border-r border-custom-slate-400 lg:text-[24px] sm:text-[20px] text-[18px] hover:bg-custom-slate-400 ">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center h-max border border-custom-slate-400 rounded-[15px] overflow-hidden">
+                    <button
+                      onClick={() => updateItemQuantity(item.id, (item.quantity || 0) - 1)}
+                      className="flex justify-center items-center h-[24px] sm:w-[35px] w-[30px] border-r border-custom-slate-400 lg:text-[24px] text-[20px] hover:bg-custom-slate-400 active:bg-custom-gray-dark"
+                    >
                       −
                     </button>
-                    <span className="lg:text-[18px] sm:text-[16px] text-[14px] font-medium">1</span>
-                    <button className="flex justify-center items-center h-[24px] sm:w-[35px] w-[28px] border-l border-custom-slate-400 lg:text-[24px] sm:text-[20px] text-[18px] hover:bg-custom-slate-400 ">
+                    <span className="xs:w-12 w-10 text-center lg:text-[16px] sm:text-[14px] text-[12px] font-medium">{item.quantity}</span>
+                    <button
+                      onClick={() => updateItemQuantity(item.id, (item.quantity || 0) + 1)}
+                      className="flex justify-center items-center h-[24px] sm:w-[35px] w-[30px] border-l border-custom-slate-400 lg:text-[24px] text-[20px] hover:bg-custom-slate-400 active:bg-custom-gray-dark"
+                    >
                       +
                     </button>
                   </div>
@@ -97,20 +120,20 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
                   >
                     Remove item
                   </button>
-                  {openRemoveItemModal && <RemoveItemModal cancelRemoveItem={cancelRemoveItem} onClick={() => handleRemoveItem(item.id)} />}
+                  {removeItemModal && <RemoveItemModal cancelRemoveItem={cancelRemoveItem} onClick={() => handleRemoveItem(item.id)} />}
                 </div>
               </div>
             </div>
           ))}
           <button
-            onClick={() => setOpenClearCartModal(true)}
+            onClick={() => setClearCartModal(true)}
             className="w-max mx-auto mt-4 font-semibold text-main-white lg:text-[16px] text-[14px] bg-custom-blood-red rounded px-6 py-2 hover:bg-custom-red"
           >
             Clear Cart
           </button>
         </div>
       )}
-      {openClearCartModal && <ClearCartModal cancelClearCart={cancelClearCart} onClick={handleClearCart} />}
+      {clearCartModal && <ClearCartModal cancelClearCart={cancelClearCart} onClick={handleClearCart} />}
     </div>
   );
 };

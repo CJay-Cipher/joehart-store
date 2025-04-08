@@ -25,6 +25,7 @@ type Product = {
   imageUrl: string;
   description?: string;
   rating?: number;
+  quantity?: number;
 };
 
 // const Products = ({ addToWishlist, wishlistDecreament, addToCart, cartDecrement }: ProductsProps) => {
@@ -37,6 +38,8 @@ const Products = ({ addToCart }: ProductsProps) => {
   // const addToCartStore = useCartStore((state) => state.addToCartStore);
   const handleAddToCart = (productData: Product) => {
     // addToCartStore(productData);
+    productData.quantity = 1;
+    // console.log(productData);
 
     // Update the state with the new product
     setCartData((prevProducts) => ({
@@ -51,7 +54,7 @@ const Products = ({ addToCart }: ProductsProps) => {
   }, [cartData, addToCart]);
 
   return (
-    <div className="mx-auto w-[100%] max-w-[1480px] mt-4 lg:px-8 md:px-6 px-4">
+    <div className="mx-auto w-[100%] max-w-[1480px] my-4 lg:px-8 md:px-6 px-4">
       <div className="flex max-lg:flex-col-reverse lg:justify-between items-center lg:gap-8 gap-3">
         <ShowingItems />
         {/* <ViewType /> */}
@@ -90,8 +93,8 @@ const Products = ({ addToCart }: ProductsProps) => {
                 )}
                 <span className="ml-2 lg:text-[12px] text-[10px] text-custom-gray">({product.rating})</span>
               </div>
-              <h2 className="font-bold lg:text-[16px] text-[14px] xs:truncate max-3xs:truncate">{product.name}</h2>
-              <p className="text-custom-gray lg:text-[12px] text-[10px] xs:truncate max-3xs:truncate">{product.description}</p>
+              <h2 className="font-bold lg:text-[16px] text-[14px] w-[200px] xs:truncate max-3xs:truncate">{product.name}</h2>
+              <p className="text-custom-gray lg:text-[12px] text-[10px] w-[200px] xs:truncate max-3xs:truncate">{product.description}</p>
               <div // title, description, price & CTA
                 className=""
               >

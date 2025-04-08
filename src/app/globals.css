@@ -94,23 +94,6 @@ a {
   scrollbar-width: none;
 }
 
-.truncate {
-  display: -webkit-box; /* For Safari */
-  -webkit-box-orient: vertical; /* For Safari */
-  -webkit-line-clamp: 2; /* Limit to 2 lines, adjust as needed */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Show ellipsis */
-}
-
-/* Fallback for non-WebKit browsers */
-.truncate {
-  display: block; /* Default block display */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Show ellipsis */
-  line-height: 1.5; /* Adjust line height */
-  max-height: calc(1.5em * 2); /* Adjust max height for 2 lines */
-}
-
 /* .max-page-height {
   max-width: 2000px;
 } */

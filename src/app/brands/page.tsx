@@ -13,6 +13,7 @@ type Product = {
   imageUrl: string;
   description?: string;
   rating?: number;
+  quantity?: number;
 };
 
 const pageName = "Brands";
