@@ -13,6 +13,7 @@
   --button-hero-bg-hover: #282f41;
   --custom-gray: #7e838f;
   --custom-gray-light: #f8f9ff;
+  --custom-gray-lighter: #fcfcff;
   --custom-gray-dark: #a1a6b4;
   --custom-gray-darker: #57595f;
   --custom-gray-400: #d1d5dc;
@@ -41,6 +42,7 @@
   --color-button-hero-bg-hover: var(--button-hero-bg-hover);
   --color-custom-gray: var(--custom-gray);
   --color-custom-gray-light: var(--custom-gray-light);
+  --color-custom-gray-lighter: var(--custom-gray-lighter);
   --color-custom-gray-dark: var(--custom-gray-dark);
   --color-custom-gray-darker: var(--custom-gray-darker);
   --color-custom-gray-400: var(--custom-gray-400);

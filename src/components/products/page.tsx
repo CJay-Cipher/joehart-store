@@ -66,7 +66,7 @@ const Products = ({ addToCart }: ProductsProps) => {
         {products.map((product) => (
           <div // card
             key={product.id}
-            className="relative flex xs:flex-col max-3xs:flex-col justify-between 3xs:max-xs:items-center gap-1 xl:max-w-[270px] lg:max-w-[260px] md:max-w-[250px] sm:max-w-[240px] xs:max-w-[230px] w-full max-3xs:max-w-[250px] max-3xs: bg-custom-slate-100 border border-shadow xl:rounded-[15px] md:rounded-[10px] rounded-[3px] overflow-hidden md:shadow-lg shadow-md hover:shadow-custom-blue-light hover:border-custom-gray-dark transition-colors duration-300 group"
+            className="relative flex xs:flex-col max-3xs:flex-col justify-between 3xs:max-xs:items-center gap-1 xl:max-w-[270px] lg:max-w-[260px] md:max-w-[250px] sm:max-w-[240px] xs:max-w-[230px] w-full max-3xs:max-w-[250px] bg-custom-gray-light border border-shadow xl:rounded-[15px] md:rounded-[10px] rounded-[3px] overflow-hidden shadow-[0_4px_10px_#eff2f7] hover:shadow-custom-blue-light hover:border-custom-gray-dark transition-colors duration-300 group"
           >
             <div // image div
               className="flex 2xs:justify-center max-3xs:justify-center items-center xs:w-full max-3xs:w-full h-full w-max md:p-4 2xs:p-3 p-2 bg-main-white xl:rounded-[15px] md:rounded-[10px] rounded-[3px] 2xs:border-b border-r border-shadow overflow-hidden"

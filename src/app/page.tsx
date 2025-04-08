@@ -31,7 +31,7 @@ export default function Home() {
   };
 
   return (
-    <div className="font-montserrat max-sm:bg-custom-gray-light overflow-y-visible">
+    <div className="font-montserrat bg-custom-gray-lighter overflow-y-visible">
       <Header cartCounter={cartCount} activePageName={pageName} />
       <Hero />
       <ExploreCarousel />

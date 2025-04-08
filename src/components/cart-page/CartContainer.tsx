@@ -102,14 +102,14 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
                   <div className="flex items-center h-max border border-custom-slate-400 rounded-[15px] overflow-hidden">
                     <button
                       onClick={() => updateItemQuantity(item.id, (item.quantity || 0) - 1)}
-                      className="flex justify-center items-center h-[24px] sm:w-[35px] w-[30px] border-r border-custom-slate-400 lg:text-[24px] text-[20px] hover:bg-custom-slate-400 active:bg-custom-gray-dark"
+                      className="flex justify-center items-center h-[24px] sm:w-[35px] w-[30px] border-r border-custom-slate-400 lg:text-[24px] text-[20px] hover:bg-custom-slate-400"
                     >
                       −
                     </button>
                     <span className="xs:w-12 w-10 text-center lg:text-[16px] sm:text-[14px] text-[12px] font-medium">{item.quantity}</span>
                     <button
                       onClick={() => updateItemQuantity(item.id, (item.quantity || 0) + 1)}
-                      className="flex justify-center items-center h-[24px] sm:w-[35px] w-[30px] border-l border-custom-slate-400 lg:text-[24px] text-[20px] hover:bg-custom-slate-400 active:bg-custom-gray-dark"
+                      className="flex justify-center items-center h-[24px] sm:w-[35px] w-[30px] border-l border-custom-slate-400 lg:text-[24px] text-[20px] hover:bg-custom-slate-400"
                     >
                       +
                     </button>
