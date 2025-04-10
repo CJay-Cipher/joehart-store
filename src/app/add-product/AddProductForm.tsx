@@ -54,6 +54,7 @@ const AddProductForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
 
     const formData = new FormData();
     formData.append("title", title);
@@ -119,8 +120,6 @@ const AddProductForm = () => {
   return (
     <div className="p-4">
       <h2 className="text-2xl text-center font-semibold mb-4">Add Product</h2>
-      {message && <p className="text-green-500">{message}</p>}
-      {error && <p className="text-red-500">{error}</p>}
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-[500px] mx-auto lg:p-6 p-4 shadow-lg border border-custom-slate-400 lg:rounded-[20px] rounded-[10px] space-y-4"
@@ -250,6 +249,8 @@ const AddProductForm = () => {
           <label className="lg:text-[16px] sm:text-[14px] text-[12px] ">Is Featured:</label>
           <input type="checkbox" checked={isFeatured} onChange={(e) => setIsFeatured(e.target.checked)} className="mr-2" />
         </div>
+        {message && <p className="text-center text-green-500">{message}</p>}
+        {error && <p className="text-center text-red-500">{error}</p>}
         <button type="submit" className="bg-blue-500 text-white rounded p-2">
           Add Product
         </button>
