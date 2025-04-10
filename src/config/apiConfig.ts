@@ -1,4 +1,4 @@
-const BASE_URL = "https://8d4e-99-239-2-114.ngrok-free.app";
+const BASE_URL = "https://d9b6-172-86-194-100.ngrok-free.app";
 const USER_SERVICE_ROUTE = "v1/user";
 const PRODUCT_ROUTE = "v1/product";
 
