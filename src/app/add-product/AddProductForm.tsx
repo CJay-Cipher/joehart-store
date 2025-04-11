@@ -53,10 +53,8 @@ const AddProductForm = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent, retryWithToken = null) => {
     e.preventDefault();
-    setError("");
-    setMessage("");
 
     const formData = new FormData();
     formData.append("title", title);
@@ -73,11 +71,14 @@ const AddProductForm = () => {
     if (quantityInStock) formData.append("quantityInStock", quantityInStock.toString());
     formData.append("isFeatured", JSON.stringify(isFeatured));
 
+    // Use provided token or the one from state
+    const tokenToUse = retryWithToken || accessToken;
+
     try {
       const response = await fetch(API_URLS.addProduct, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${tokenToUse}`,
         },
         credentials: "include",
         body: formData,
@@ -86,13 +87,16 @@ const AddProductForm = () => {
       if (!response.ok) {
         if (response.status === 401) {
           const data = await response.json();
-          console.log("Main data:", data);
-          if (data.error.details.accessTokenStatus === "expired") {
-            await refreshToken();
-            return handleSubmit(e); // Retry after refreshing token
+          if (data.error?.details?.accessTokenStatus === "expired" && !retryWithToken) {
+            const newRefreshToken: any = await refreshToken();
+            // Only retry once to prevent infinite loops
+            // const newToken = await refreshToken();
+            if (newRefreshToken) {
+              return handleSubmit(e, newRefreshToken); // Retry with new token
+            }
           }
         }
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response}`);
       }
 
       const data = await response.json();
