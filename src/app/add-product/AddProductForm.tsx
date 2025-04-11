@@ -55,6 +55,8 @@ const AddProductForm = () => {
 
   const handleSubmit = async (e: React.FormEvent, retryWithToken = null) => {
     e.preventDefault();
+    setError("");
+    setMessage("");
 
     const formData = new FormData();
     formData.append("title", title);
