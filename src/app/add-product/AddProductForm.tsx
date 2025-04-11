@@ -25,7 +25,7 @@ const AddProductForm = () => {
     // Access token retrieval in useEffect to ensure it's on the client
     const token = window.localStorage.getItem("accessToken");
     setAccessToken(token);
-  }, []);
+  }, [accessToken]);
 
   const refreshToken = async () => {
     try {
@@ -42,23 +42,18 @@ const AddProductForm = () => {
       }
 
       const data = await response.json();
-      console.log("refreshToken data:", data);
       window.localStorage.setItem("accessToken", data.data.accessToken);
       setAccessToken(data.data.accessToken); // Update state with new token
       console.log("Token refreshed successfully");
-      return data.data.accessToken;
     } catch (error) {
       console.error("Token refresh failed:", error);
-      return null;
       // Redirect to login if token refresh fails
       // window.location.href = "/login";
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent, retryWithToken = null) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
-    setMessage("");
 
     const formData = new FormData();
     formData.append("title", title);
@@ -75,14 +70,11 @@ const AddProductForm = () => {
     if (quantityInStock) formData.append("quantityInStock", quantityInStock.toString());
     formData.append("isFeatured", JSON.stringify(isFeatured));
 
-    // Use provided token or the one from state
-    const tokenToUse = retryWithToken || accessToken;
-
     try {
       const response = await fetch(API_URLS.addProduct, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${tokenToUse}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         credentials: "include",
         body: formData,
@@ -91,16 +83,12 @@ const AddProductForm = () => {
       if (!response.ok) {
         if (response.status === 401) {
           const data = await response.json();
-          if (data.error?.details?.accessTokenStatus === "expired" && !retryWithToken) {
-            const newRefreshToken = await refreshToken();
-            // Only retry once to prevent infinite loops
-            // const newToken = await refreshToken();
-            if (newRefreshToken) {
-              return handleSubmit(e, newRefreshToken); // Retry with new token
-            }
+          if (data.error.details.accessTokenStatus === "expired") {
+            await refreshToken();
+            return handleSubmit(e); // Retry after refreshing token
           }
         }
-        throw new Error(`HTTP error! Status: ${response}`);
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
       const data = await response.json();
@@ -260,12 +248,12 @@ const AddProductForm = () => {
           <label className="lg:text-[16px] sm:text-[14px] text-[12px] ">Is Featured:</label>
           <input type="checkbox" checked={isFeatured} onChange={(e) => setIsFeatured(e.target.checked)} className="mr-2" />
         </div>
-        {message && <p className="text-center text-green-500">{message}</p>}
-        {error && <p className="text-center text-red-500">{error}</p>}
         <button type="submit" className="bg-blue-500 text-white rounded p-2">
           Add Product
         </button>
       </form>
+      {message && <p className="text-center text-green-500">{message}</p>}
+      {error && <p className="text-center text-red-500">{error}</p>}
     </div>
   );
 };
