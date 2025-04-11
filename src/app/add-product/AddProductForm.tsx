@@ -46,8 +46,10 @@ const AddProductForm = () => {
       window.localStorage.setItem("accessToken", data.data.accessToken);
       setAccessToken(data.data.accessToken); // Update state with new token
       console.log("Token refreshed successfully");
+      return data.data.accessToken;
     } catch (error) {
       console.error("Token refresh failed:", error);
+      return null;
       // Redirect to login if token refresh fails
       // window.location.href = "/login";
     }
@@ -93,7 +95,7 @@ const AddProductForm = () => {
             const newRefreshToken = await refreshToken();
             // Only retry once to prevent infinite loops
             // const newToken = await refreshToken();
-            if (newRefreshToken != null) {
+            if (newRefreshToken) {
               return handleSubmit(e, newRefreshToken); // Retry with new token
             }
           }
