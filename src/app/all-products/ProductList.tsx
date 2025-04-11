@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { API_URLS } from "@/config/apiConfig";
 import Image from "next/image";
 import { FaEye } from "react-icons/fa6";
-import { IoCartOutline } from "react-icons/io5";
+import { IoCartOutline, IoWarningOutline } from "react-icons/io5";
 import { IoMdHeart } from "react-icons/io";
 import ShowingItems from "@/components/products/ShowingItems";
 import SearchSortBar from "@/components/products/SearchSortBar";
@@ -83,17 +83,18 @@ const ProductList = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen w-screen">
-        <p className="text-center text-[24px] font-medium">Loading...</p>
+        <p className="loader text-center text-[24px] font-medium"></p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="flex justify-center items-center h-screen w-screen">
+      <div className="flex flex-col justify-center items-center gap-2 h-screen w-screen">
+        <IoWarningOutline className="lg:text-[55px] sm:text-[45px] text-[35px] text-red-500" />
         {error == "Failed to fetch" ? (
-          <p className="text-center lg:text-[24px] sm:text-[20px] text-[16px] font-medium">
-            Sorry, Our Server is currently down <br /> Please try again later.
+          <p className="text-center lg:text-[18px] sm:text-[14px] text-[14px] font-medium">
+            Oops!, Our Server is currently down <br /> Please try again later.
           </p>
         ) : (
           <p className="text-center text-red-500 font-medium">Error: {error}</p>
