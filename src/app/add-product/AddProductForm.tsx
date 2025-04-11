@@ -86,6 +86,7 @@ const AddProductForm = () => {
       if (!response.ok) {
         if (response.status === 401) {
           const data = await response.json();
+          console.log("Main data:", data);
           if (data.error.details.accessTokenStatus === "expired") {
             await refreshToken();
             return handleSubmit(e); // Retry after refreshing token
