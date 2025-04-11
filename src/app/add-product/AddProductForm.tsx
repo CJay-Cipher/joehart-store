@@ -42,6 +42,7 @@ const AddProductForm = () => {
       }
 
       const data = await response.json();
+      console.log("refreshToken data:", data);
       window.localStorage.setItem("accessToken", data.data.accessToken);
       setAccessToken(data.data.accessToken); // Update state with new token
       console.log("Token refreshed successfully");
@@ -55,6 +56,7 @@ const AddProductForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setMessage("");
 
     const formData = new FormData();
     formData.append("title", title);
