@@ -83,7 +83,7 @@ const ProductList = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen w-screen">
-        <p className="text-[24px] font-medium">Loading...</p>
+        <p className="text-center text-[24px] font-medium">Loading...</p>
       </div>
     );
   }
@@ -91,7 +91,13 @@ const ProductList = () => {
   if (error) {
     return (
       <div className="flex justify-center items-center h-screen w-screen">
-        <p className="text-red-500 font-medium">Error: {error}</p>
+        {error == "Failed to fetch" ? (
+          <p className="text-center lg:text-[24px] sm:text-[20px] text-[16px] font-medium">
+            Sorry, Our Server is currently down <br /> Please try again later.
+          </p>
+        ) : (
+          <p className="text-center text-red-500 font-medium">Error: {error}</p>
+        )}
       </div>
     );
   }
