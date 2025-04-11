@@ -88,10 +88,10 @@ const AddProductForm = () => {
         if (response.status === 401) {
           const data = await response.json();
           if (data.error?.details?.accessTokenStatus === "expired" && !retryWithToken) {
-            const newRefreshToken: any = await refreshToken();
+            const newRefreshToken = await refreshToken();
             // Only retry once to prevent infinite loops
             // const newToken = await refreshToken();
-            if (newRefreshToken) {
+            if (newRefreshToken != null) {
               return handleSubmit(e, newRefreshToken); // Retry with new token
             }
           }
