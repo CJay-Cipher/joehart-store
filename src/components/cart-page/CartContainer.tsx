@@ -121,6 +121,7 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
                     Remove item
                   </button>
                   {removeItemModal && <RemoveItemModal cancelRemoveItem={cancelRemoveItem} onClick={() => handleRemoveItem(item.id)} />}
+                  {clearCartModal && <ClearCartModal cancelClearCart={cancelClearCart} onClick={handleClearCart} />}
                 </div>
               </div>
             </div>
@@ -133,7 +134,6 @@ const CartContainer = ({ removeFromCart }: CartContainerProps) => {
           </button>
         </div>
       )}
-      {clearCartModal && <ClearCartModal cancelClearCart={cancelClearCart} onClick={handleClearCart} />}
     </div>
   );
 };

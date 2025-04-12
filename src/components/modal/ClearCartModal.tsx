@@ -6,7 +6,7 @@ type ClearCartModalProps = {
 
 const ClearCartModal = ({ cancelClearCart, onClick }: ClearCartModalProps) => {
   return (
-    <div className="fixed z-100 inset-0 bg-gray-800/60 flex justify-center items-center p-4 ">
+    <div className="fixed z-100 inset-0 bg-modal-bg flex justify-center items-center p-4 ">
       <div className="relative flex flex-col items-center py-6 p-4 w-full lg:max-w-[450px] max-w-[370px] bg-main-white md:rounded-[20px] rounded-[10px] ">
         <div
           onClick={() => cancelClearCart()}

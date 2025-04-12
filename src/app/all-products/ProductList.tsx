@@ -82,7 +82,7 @@ const ProductList = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen w-screen">
+      <div className="absolute top-0 flex flex-col justify-center items-center gap-2 h-[100svh] w-full">
         <p className="loader text-center text-[24px] font-medium"></p>
       </div>
     );
@@ -90,11 +90,11 @@ const ProductList = () => {
 
   if (error) {
     return (
-      <div className="flex flex-col justify-center items-center gap-2 h-screen w-screen">
+      <div className="absolute top-0 flex flex-col justify-center items-center gap-2 h-[100svh] w-full">
         <IoWarningOutline className="lg:text-[55px] sm:text-[45px] text-[35px] text-red-500" />
         {error == "Failed to fetch" ? (
           <p className="text-center lg:text-[18px] sm:text-[14px] text-[14px] font-medium">
-            Oops!, Our Server is currently down <br /> Please try again later.
+            Oops! Our Server is currently down <br /> Please try again later.
           </p>
         ) : (
           <p className="text-center text-red-500 font-medium">Error: {error}</p>

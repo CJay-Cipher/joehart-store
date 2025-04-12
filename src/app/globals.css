@@ -26,6 +26,7 @@
   --custom-blue-2: #2b7fff;
   --custom-blue-light: #add7ff;
   --shadow: #e4e7ef;
+  --modal-bg: #000b243b;
 }
 
 @theme inline {
@@ -55,6 +56,7 @@
   --color-custom-blue-2: var(--custom-blue-2);
   --color-custom-blue-light: var(--custom-blue-light);
   --color-shadow: var(--shadow);
+  --color-modal-bg: var(--modal-bg);
 
   /* font-family */
   --font-montserrat: var(--font-montserrat);
@@ -174,7 +176,7 @@ a {
 }
 .loader::after {
   transform: rotate3d(90, 90, 0, 180deg);
-  border-color: var(--custom-slate-600);
+  border-color: var(--custom-slate-500);
 }
 
 @keyframes rotate {

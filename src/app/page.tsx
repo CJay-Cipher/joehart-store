@@ -18,8 +18,6 @@ type Product = {
   quantity?: number;
 };
 
-const pageName = "Home";
-
 export default function Home() {
   // const [wishlistCount, setWishlistCount] = useState<number>(0);
   const [cartCount, setCartCount] = useState<number>(0);
@@ -32,7 +30,7 @@ export default function Home() {
 
   return (
     <div className="font-montserrat bg-custom-gray-lighter overflow-y-visible">
-      <Header cartCounter={cartCount} activePageName={pageName} />
+      <Header cartCounter={cartCount} activePageName="Home" />
       <Hero />
       <ExploreCarousel />
       {/* <PagePath pageName={pageName} /> */}

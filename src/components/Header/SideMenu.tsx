@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import NavLinks from "./NavLinks";
+import { NAV_LINKS } from "@/constants/navLinks";
 import HeaderBtnCTA from "./HeaderBtnCTA";
 import { BsPersonPlus } from "react-icons/bs";
 import { FiLogIn } from "react-icons/fi";
@@ -9,13 +10,6 @@ type SideMenuProps = {
   activePageName?: string;
   handleOutsideMenuClick: (value: boolean) => void;
 };
-const navLinks = [
-  { name: "HOME", href: "/" },
-  { name: "DEALS", href: "/deals" },
-  { name: "CATEGORIES", hasIcon: true },
-  { name: "BEST SELLERS", href: "/best-sellers" },
-  { name: "BRANDS", href: "/brands" },
-];
 
 const SideMenu = ({ isOpen, activePageName, handleOutsideMenuClick }: SideMenuProps) => {
   const sideMenuRef = useRef<HTMLDivElement | null>(null);
@@ -59,7 +53,7 @@ const SideMenu = ({ isOpen, activePageName, handleOutsideMenuClick }: SideMenuPr
           isOpen ? "translate-x-0" : "translate-x-[120%]"
         }`}
       >
-        <NavLinks navLinks={navLinks} activePageName={activePageName} />
+        <NavLinks navLinks={NAV_LINKS} activePageName={activePageName} />
         <div className="lg:hidden flex flex-col gap-2 w-max mx-[14px] mt-[50px]">
           <HeaderBtnCTA href="/register" buttonText="Sign Up" Icon={BsPersonPlus} isDarkBg={true} />
           <HeaderBtnCTA href="/login" buttonText="Login" Icon={FiLogIn} isDarkBg={false} />

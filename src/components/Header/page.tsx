@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
+import { NAV_LINKS } from "@/constants/navLinks";
 import MenuIconOpenClose from "./MenuIconOpenClose";
 import HeaderBtnCTA from "./HeaderBtnCTA";
 import perfume from "../../images/perfume.png";
@@ -31,14 +32,6 @@ type HeaderProps = {
 //   description?: string;
 //   rating?: number;
 // };
-
-const navLinks = [
-  { name: "HOME", href: "/" },
-  { name: "DEALS", href: "/deals" },
-  { name: "CATEGORIES", hasIcon: true },
-  { name: "BEST SELLERS", href: "/best-sellers" },
-  { name: "BRANDS", href: "/brands" },
-];
 
 const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounter, bgColor }: HeaderProps) => {
   // const [wishlistCount, setWishlistCount] = useState<number>(0);
@@ -155,7 +148,7 @@ const Header = ({ activePageName, wishlistCounter, cartCounter, hideActionCounte
           </Link>
 
           <div className="max-lg:hidden">
-            <NavLinks navLinks={navLinks} activePageName={activePageName} />
+            <NavLinks navLinks={NAV_LINKS} activePageName={activePageName} />
           </div>
 
           <div className="max-sm:absolute max-sm:w-full flex items-center max-sm:justify-center lg:gap-3 gap-2">

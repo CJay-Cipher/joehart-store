@@ -7,7 +7,7 @@ import ProductList from "./ProductList";
 const AllProducts = () => {
   return (
     <div className="font-montserrat bg-custom-gray-lighter overflow-y-visible">
-      <Header />
+      <Header activePageName="all products" />
       <ProductList />
     </div>
   );

@@ -9,7 +9,7 @@ type NavLink = {
 };
 
 type NavLinksProps = {
-  navLinks: NavLink[];
+  navLinks: ReadonlyArray<NavLink>;
   activePageName?: string;
 };
 
