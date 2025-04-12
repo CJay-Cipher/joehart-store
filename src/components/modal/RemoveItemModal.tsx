@@ -7,7 +7,7 @@ type RemoveItemModalProps = {
 const RemoveItemModal = ({ cancelRemoveItem, onClick }: RemoveItemModalProps) => {
   return (
     <div className="fixed z-100 inset-0 bg-modal-bg flex justify-center items-center p-4 ">
-      <div className="relative flex flex-col items-center py-6 p-4 w-full lg:max-w-[450px] max-w-[370px] bg-main-white md:rounded-[20px] rounded-[10px] ">
+      <div className="relative flex flex-col items-center p-6 w-full lg:max-w-[450px] max-w-[370px] bg-main-white md:rounded-[20px] rounded-[10px] ">
         <div
           onClick={() => cancelRemoveItem()}
           className="absolute z-10 top-[8px] right-[10px] lg:text-[18px] text-[16px] font-semibold px-2 bg-main-white border border-transparent rounded hover:border-custom-gray-dark cursor-pointer"
